@@ -1,0 +1,18 @@
+#ifndef PERIPHERALS_H
+#define PERIPHERALS_H
+
+#define MB7383_TTL_POWER_TERMINAL 0u
+#define MB7383_TTL_UART_MUX_TERMINAL 0u
+#define MB7383_TTL_UART_BAUD 9600u
+#define MB7383_TTL_ON_TIME 800u
+#define MB7383_TTL_REGEX "\rR([0-9]+)\r"
+#define MB7383_TTL_BUFFER_LEN 5
+#define MB7383_TTL_NVARS 1
+#define MB7383_TTL_STR_START_0 "TempI\rR"
+#define MB7383_TTL_STR_END_0 "\r"
+#define MB7383_TTL_INVALID_0 9999
+#define MB7383_TTL_DEFAULT_0 -9999
+#define MB7383_TTL_LABEL_0 "maxbotix_depth"
+
+#endif
+/* [] END OF FILE */

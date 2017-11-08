@@ -1,0 +1,20 @@
+# Generated code
+cypress/master.cydsn/CortexM3/
+cypress/master.cydsn/Export/
+cypress/master.cydsn/Generated_Source/
+cypress/master.cydsn/codegentemp/
+cypress/master.cydsn/Backup/
+cypress/master.cydsn/master-*
+cypress/master.cydsn/master.cycdx
+cypress/master.cydsn/master.cyfit
+cypress/master.cydsn/master.cyprj.*
+cypress/master.cydsn/master.rpt
+cypress/master.cydsn/master.svd
+cypress/master.cydsn/master_timing.html
+cypress/*.cywrk.*
+cypress/master.cydsn/config.h
+cypress/master.cydsn/commit.h
+cypress/master.cydsn/*.log
+
+# Vim
+*.un~
