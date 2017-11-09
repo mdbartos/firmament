@@ -120,7 +120,13 @@ char *strextract(const char input_str[], char output_str[],
 
     if ((begin = strstr(input_str, search_start))) {
         begin += strlen(search_start);
-        if ((end = strstr(begin, search_end))) {
+        if (search_end[0]){
+            end = strstr(begin, search_end);
+        }
+        else {
+            end = strchr(begin, '\0');
+        }
+        if (end) {
             strncpy(output_str, begin, end - begin);
             output_str[end - begin] = '\0';
         }
