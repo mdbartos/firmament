@@ -11,21 +11,9 @@
 
 #include <project.h>
 #include "peripherals.h"
+#include "device_def.h"
 
-#define MAX_EXTRACT_BUFFER_SIZE 16    
-
-typedef struct {
-    uint32_t baud;
-    int on_time;
-    uint8 mux_term;
-    uint8 power_term;
-    uint8 nvars;
-    float (*readings)[];
-    float (*invalid)[];
-    char *(*labels)[];
-    char *(*str_starts)[];
-    char *(*str_ends)[];
-} DeviceConfig;    
+#define MAX_EXTRACT_BUFFER_SIZE 16       
     
 /**
  * @brief Starts the sensors UART with generic interrupt service.
@@ -72,6 +60,8 @@ void generic_uart_clear_string();
 int generic_uart_parse_reading(DeviceConfig device, char *str);
 
 int generic_uart_get_reading(DeviceConfig device);
+
+int generic_uart_zip(char *labels[], float readings[], DeviceConfig device, int *array_ix, int max_size);
 
 CY_ISR_PROTO(generic_uart_rx_isr);
 

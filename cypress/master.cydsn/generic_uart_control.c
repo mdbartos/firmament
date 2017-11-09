@@ -92,7 +92,20 @@ int generic_uart_get_reading(DeviceConfig device){
     generic_uart_parse_reading(device, uart_string);
     return 1u;
 }
-                                    
+
+int generic_uart_zip(char *labels[], float readings[], DeviceConfig device, int *array_ix, int max_size){
+    int iter = 0u;
+    if (*array_ix + device.nvars >= max_size){
+        return *array_ix;
+    }
+    for (iter=0; iter < device.nvars; iter++)
+    {
+        labels[*array_ix] = (*device.labels)[iter];
+        readings[*array_ix] = (*device.readings)[iter];
+        *array_ix += 1;
+    }
+    return *array_ix;
+}
                                     
 CY_ISR(generic_uart_rx_isr) {
     // hold the next char in the rx register as a temporary variable

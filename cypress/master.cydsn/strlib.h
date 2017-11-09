@@ -10,6 +10,7 @@
 #define STRLIB_H
 #include <stddef.h>
 #include <stdint.h>
+#include "device_def.h"
 
 /**
  * @brief Searches InfluxDB json packet, "packet", for "name" and
@@ -138,6 +139,8 @@ uint8_t gps_parse(const char* gps_string, float* lat, float* lon, float* hdop,
  */
 uint8_t parse_http_status(char* http_status, char* version, char* status_code,
                           char* phrase);
+
+int zip_measurements(char *labels[], float readings[], DeviceConfig device, int *array_ix, int max_size);
 
 #endif
 

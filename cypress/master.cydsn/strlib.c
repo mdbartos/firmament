@@ -220,4 +220,18 @@ uint8_t parse_http_status(char *http_status, char *version, char *status_code,
     return terminator != NULL;
 }
 
+int zip_measurements(char *labels[], float readings[], DeviceConfig device, int *array_ix, int max_size){
+    int iter = 0u;
+    if (*array_ix + device.nvars >= max_size){
+        return *array_ix;
+    }
+    for (iter=0; iter < device.nvars; iter++)
+    {
+        labels[*array_ix] = (*device.labels)[iter];
+        readings[*array_ix] = (*device.readings)[iter];
+        *array_ix += 1;
+    }
+    return *array_ix;
+}                        
+                        
 /* [] END OF FILE */
