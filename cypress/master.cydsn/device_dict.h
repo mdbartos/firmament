@@ -1,5 +1,5 @@
-#ifndef DEVICE_DEF_H
-#define DEVICE_DEF_H
+#ifndef DEVICE_DICT_H
+#define DEVICE_DICT_H
     
 #include <project.h>
 
@@ -17,7 +17,7 @@ typedef struct {
     char *(*labels)[];
     char *(*str_starts)[];
     char *(*str_ends)[];
-} DeviceConfig; 
+} DeviceDict; 
 
 #endif
 /* [] END OF FILE */

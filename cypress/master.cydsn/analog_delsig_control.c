@@ -2,11 +2,11 @@
 #include "analog_delsig_control.h"
 #include "power.h"
 
-float32 analog_delsig_get_reading(DeviceConfig device) {
+float32 analog_delsig_get_reading(DeviceDict device) {
 	int32 raw_reading = 0;
 	float32 reading = 0;
 	// flip on the ADC pin
-	power_toggle(1u, device.power_term);
+	power_toggle(1u, device.power_term); // TODO: Is this actually needed?
 	CyDelay(device.on_time);	
 	// Start the ADC
 	analog_delsig_Wakeup();

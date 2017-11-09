@@ -60,7 +60,7 @@ void generic_uart_clear_string() {
  * @param reading Structure to store results into. Depth in millimeters.
  * @param str Raw UART received string.
  */
-int generic_uart_parse_reading(DeviceConfig device, char *str){
+int generic_uart_parse_reading(DeviceDict device, char *str){
     float reading = 0;
     char reading_str[MAX_EXTRACT_BUFFER_SIZE] = {'\0'};
     char *search_start = str;
@@ -79,7 +79,7 @@ int generic_uart_parse_reading(DeviceConfig device, char *str){
     return 1u;
 }
 
-int generic_uart_get_reading(DeviceConfig device){
+int generic_uart_get_reading(DeviceDict device){
     generic_uart_clear_string();
     generic_uart_set_baud(device.baud);
     generic_uart_select_input(device.mux_term);
@@ -93,7 +93,7 @@ int generic_uart_get_reading(DeviceConfig device){
     return 1u;
 }
 
-int generic_uart_zip(char *labels[], float readings[], DeviceConfig device, int *array_ix, int max_size){
+int generic_uart_zip(char *labels[], float readings[], DeviceDict device, int *array_ix, int max_size){
     int iter = 0u;
     if (*array_ix + device.nvars >= max_size){
         return *array_ix;
