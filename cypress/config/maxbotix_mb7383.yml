@@ -1,0 +1,68 @@
+# Component description
+identifier : "urn:maxbotix:mb7383"
+manufacturer : "Maxbotix"
+name : "MB7383 HRXL-MaxSonar-WRLST"
+description : "High performance ultrasonic rangefinder"
+
+# Metadata
+pinout:
+    - "temperature sensor connection"
+    - "pulse width output"
+    - "analog voltage output"
+    - "ranging start/stop"
+    - "serial output"
+    - "positive power (vcc)"
+    - "ground"
+
+# Data
+output_variables:
+    - name: "distance"
+      units: "mm"
+      data_range : [500, 9999]
+
+# Communications
+default_communication_protocol : "ttl"
+supported_communication_protocols:
+    ttl:
+        static:
+            data_bits : 8
+            parity : "none"
+            parity_api_control : 0
+            stop_bits : 1
+            flow_control : "none"
+            logic_level : "high"
+        dynamic:
+            baud_rate : 9600
+            on_time : 800
+            parsing_logic:
+                nvars : 1
+                str_starts :
+                    - "\rR"
+                str_ends :
+                    - "\r"
+                labels :
+                    - "maxbotix_depth"
+                regex : "\rR([0-9]+)\r"
+        components:
+            - "generic_uart_rx"
+            - "power"
+    analog_sar:
+        scale_factor_numerator: "vcc"
+        scale_factor_denominator: 10240
+        resolution_bits : 12
+        conversion_rate_sps : 631579
+        sample_rate : "free running"
+        clock_source : "internal"
+        input_range: "vss_to_vref"
+        reference: "int_ref_bypass"
+        components:
+            - "analog_sar_rx"
+            - "power"
+    analog_delsig:
+        scale_factor_numerator: "vcc"
+        scale_factor_denominator: 10240
+        resolution_bits : 20
+        components:
+            - "analog_delsig_rx"
+            - "power"
+

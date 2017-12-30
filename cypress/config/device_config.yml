@@ -1,0 +1,18 @@
+external:
+    - identifier : "urn:maxbotix:mb7383" 
+      communication_protocol : "ttl"
+      pins:
+          power : '12,4'
+          generic_uart_rx : '12,3'
+    - identifier : "urn:decagon:gs3" 
+      communication_protocol : "ttl"
+      pins:
+          power : '3,0'
+          generic_uart_rx : '3,1'
+    #- identifier : 'urn:battery_internal'
+    #  communication_protocol : 'analog'
+    #  pins:
+    #      power : '12,1'
+    #      analog_rx : '0,0'
+internal:
+    - identifier : "urn:cypress:sleeptimer"

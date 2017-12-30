@@ -1,0 +1,62 @@
+generic_uart:
+    base:
+        - "generic_uart"
+        - "generic_uart_mux"
+        - "generic_uart_mux_controller"
+        - "generic_uart_isr"
+        - "generic_uart_reset"
+    peripheral:
+        - "generic_uart_rx_0"
+        - "generic_uart_rx_1"
+        - "generic_uart_rx_2"
+        - "generic_uart_rx_3"
+rs485_uart:
+    base:
+        - "rs485_uart"
+        - "rs485_comparator"
+        - "rs485_uart_mux"
+        - "rs485_uart_mux_controller"
+        - "rs485_uart_isr"
+        - "rs485_uart_reset"
+    peripheral:
+        - "rs485_uart_rx_0"
+        - "rs485_uart_tx_0"
+sdi12_uart:
+    base:
+        - "sdi12_uart"
+        - "sdi12_uart_mux"
+        - "sdi12_uart_mux_controller"
+        - "sdi12_uart_isr"
+        - "sdi12_uart_reset"
+    peripheral:
+        - "sdi12_uart_rx_0"
+        - "sdi12_uart_tx_0"
+analog_delsig:
+    base:
+        - "analog_delsig_adc"
+        - "analog_delsig_mux"
+    peripheral:
+        - "analog_delsig_rx_0"
+        - "analog_delsig_rx_1"
+        - "analog_delsig_rx_2"
+        - "analog_delsig_rx_3"
+analog_sar:
+    base:
+        - "analog_sar_adc"
+        - "analog_sar_mux"
+    peripheral:
+        - "analog_sar_rx_0"
+        - "analog_sar_rx_1"
+        - "analog_sar_rx_2"
+        - "analog_sar_rx_3"
+power:
+    base:
+        - "power_demux"
+        - "power_controller"
+    peripheral:
+        - "power_0"
+        - "power_1"
+        - "power_2"
+        - "power_3"
+        - "power_4"
+
