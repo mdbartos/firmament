@@ -1,2 +1,3 @@
-"urn:maxbotix:mb7383" : "maxbotix_mb7383.yml"
-"urn:decagon:gs3" : "decagon_gs3.yml"
+# TODO: Fix bad relative paths
+"urn:maxbotix:mb7383" : "../config/maxbotix_mb7383.yml"
+"urn:decagon:gs3" : "../config/decagon_gs3.yml"
