@@ -1,3 +1,5 @@
+#include "peripheral_globals.h"
+#if GENERIC_UART_ACTIVATED
 #include "generic_uart_control.h"
 #include "strlib.h"
 #include "power.h"
@@ -120,4 +122,5 @@ CY_ISR(generic_uart_rx_isr) {
     }
 }
 
+#endif
 /* [] END OF FILE */

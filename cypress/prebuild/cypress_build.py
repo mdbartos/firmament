@@ -1,6 +1,7 @@
 import os
-import yaml
+import subprocess
 import itertools
+import yaml
 from bs4 import BeautifulSoup
 
 paths = {
@@ -9,12 +10,20 @@ paths = {
         'aliases' : '../config/psoc_aliases.yml',
         'master' : '../config/master_component_list.yml',
         'project' : '../master.cydsn',
-        'dwr' : '../master.cydsn/master.cydwr'
+        'workspace' : '../master.cywrk',
+        'cyprjmgr' : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe',
+        'dwr' : '../master.cydsn/master.cydwr',
+        'params' : '../master.cydsn/params',
+        'globals' : '../master.cydsn/peripheral_globals.h',
+        'instances' : '../master.cydsn/peripheral_instances.h',
         }
+
+project_name = 'master'
 
 class CypressBuilder():
     def __init__(self):
         self.paths = paths
+        self.project_name = project_name
 
         # Initialize dicts
         self.config = {}
@@ -32,7 +41,8 @@ class CypressBuilder():
         self.master_component_list = []
         for subsystem in self.master:
             self.master_component_list.extend(self.master[subsystem]['base'])
-            self.master_component_list.extend(self.master[subsystem]['peripheral'])
+            if 'peripheral' in self.master[subsystem]:
+                self.master_component_list.extend(self.master[subsystem]['peripheral'])
 
         self._generate_private_components()
         self._generate_global_components()
@@ -128,10 +138,18 @@ class CypressBuilder():
 
     def write_params_file(self):
         # Write params file
-        params_file_path = os.path.join(self.paths['project'], 'params')
         param_lines = '\n'.join(self.params_list)
-        with open(params_file_path, 'w') as params_file:
+        with open(self.paths['params'], 'w') as params_file:
             params_file.write(param_lines)
+
+    def build_project(self, params=False):
+        cmd_list = [self.paths['cyprjmgr'], '-wrk', self.paths['workspace'], '-prj',
+                self.project_name, '-build']
+        if params:
+            cmd_list.extend(['-m', self.paths['params']])
+        print(' '.join(cmd_list))
+        result = subprocess.call(cmd_list)
+        return result
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file
@@ -191,6 +209,7 @@ class CypressBuilder():
 if __name__ == "__main__":
     builder = CypressBuilder()
     builder.write_params_file()
+    builder.build_project(params=True)
     # Need to edit includes and driver files here
     # Need to build project here
     builder._modify_dwr()

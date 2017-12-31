@@ -1,4 +1,6 @@
-#include <project.h>
+#include "peripheral_globals.h"
+#if I2C_ACTIVATED
+#include "i2c_control.h"
 #include <stdlib.h>
 #include "device_dict.h"
 #include "strlib.h"
@@ -84,4 +86,5 @@ uint8 i2c_get_reading(DeviceDict device){
     return 1u;
 }
 
+#endif
 /* [] END OF FILE */

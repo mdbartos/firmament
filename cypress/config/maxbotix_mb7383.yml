@@ -56,13 +56,13 @@ supported_communication_protocols:
         input_range: "vss_to_vref"
         reference: "int_ref_bypass"
         components:
-            - "analog_sar_rx"
+            - "analog_sar_signal"
             - "power"
     analog_delsig:
         scale_factor_numerator: "vcc"
         scale_factor_denominator: 10240
         resolution_bits : 20
         components:
-            - "analog_delsig_rx"
+            - "analog_delsig_signal"
             - "power"
 

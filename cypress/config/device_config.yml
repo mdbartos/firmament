@@ -9,10 +9,10 @@ external:
       pins:
           power : '3,0'
           generic_uart_rx : '3,1'
-    #- identifier : 'urn:battery_internal'
-    #  communication_protocol : 'analog'
-    #  pins:
-    #      power : '12,1'
-    #      analog_rx : '0,0'
+    - identifier : 'urn:battery_internal'
+      communication_protocol : 'analog_delsig'
+      pins:
+          power : '12,1'
+          analog_delsig_signal : '0,0'
 internal:
     - identifier : "urn:cypress:sleeptimer"

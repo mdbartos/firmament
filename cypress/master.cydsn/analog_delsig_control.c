@@ -1,4 +1,5 @@
-#include <project.h>
+#include "peripheral_globals.h"
+#if ANALOG_DELSIG_ACTIVATED
 #include "analog_delsig_control.h"
 #include "power.h"
 
@@ -9,15 +10,15 @@ float32 analog_delsig_get_reading(DeviceDict device) {
 	power_toggle(1u, device.power_term); // TODO: Is this actually needed?
 	CyDelay(device.on_time);	
 	// Start the ADC
-	analog_delsig_Wakeup();
-	analog_delsig_Start(); 
+	analog_delsig_adc_Wakeup();
+	analog_delsig_adc_Start(); 
     // Select mux term
     analog_delsig_mux_Start();
     analog_delsig_mux_Select(device.mux_term);
 	// Read the voltage
-    raw_reading = analog_delsig_Read32();
+    raw_reading = analog_delsig_adc_Read32();
     if (device.analog_convert_volts){
-	    reading = analog_delsig_CountsTo_Volts(raw_reading);
+	    reading = analog_delsig_adc_CountsTo_Volts(raw_reading);
     }
     else {
         reading = raw_reading;
@@ -25,7 +26,7 @@ float32 analog_delsig_get_reading(DeviceDict device) {
     reading *= device.analog_gain_numerator;
     reading /= device.analog_gain_denominator;
 	// Stop the conversion
-	analog_delsig_Sleep();
+	analog_delsig_adc_Sleep();
 	// flip off the ADC pin
 	power_toggle(0u, device.power_term);	
     // Stop analog mux
@@ -36,4 +37,5 @@ float32 analog_delsig_get_reading(DeviceDict device) {
 	return reading;
 }
 
+#endif
 /* [] END OF FILE */
