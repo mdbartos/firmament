@@ -3,6 +3,7 @@ identifier : "urn:battery_internal"
 manufacturer : ""
 name : ""
 description : "Read internal battery"
+alias : "battery_internal"
 
 # Data
 output_variables:

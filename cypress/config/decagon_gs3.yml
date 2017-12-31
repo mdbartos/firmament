@@ -3,6 +3,7 @@ identifier : "urn:decagon:gs3"
 manufacturer : "Decagon"
 name : "GS3 Greenhouse Sensor"
 description : "Ruggedized soil moisture, temperature, and electrical conductivity sensor"
+alias: "gs3"
 
 # Metadata
 pinout:

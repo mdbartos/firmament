@@ -29,7 +29,8 @@ class CypressBuilder():
         self.config = {}
         self.locations = {}
         self.docs = {}
-        self.protocol_docs = {}
+        # TODO: Rename protocol docs to instances
+        self.instances = {}
         self.devices = {}
         self.aliases = {}
         self.master = {}
@@ -73,6 +74,7 @@ class CypressBuilder():
 
     def _generate_private_components(self):
         # Determine device-specific requirements
+        # TODO: Separate building instance dict from private components
         private_component_list = []
         self.private_components = {}
         device_ids = []
@@ -80,7 +82,8 @@ class CypressBuilder():
             # Get device id
             device_id = device['identifier']
             # Account for duplicate devices
-            instance_name = device_id + ':{0}'.format(device_ids.count(device_id))
+            instance_number = device_ids.count(device_id)
+            instance_name = device_id + ':{0}'.format(instance_number)
             device_ids.append(device_id)
             protocol = device['communication_protocol']
             sensor_path = self.locations[device_id]
@@ -89,7 +92,15 @@ class CypressBuilder():
             with open(sensor_path, 'r') as stream:
                 self.docs[device_id].update(yaml.load(stream))
             protocol_info = self.docs[device_id]['supported_communication_protocols'][protocol]
-            self.protocol_docs[instance_name] = protocol_info
+            self.instances[instance_name] = protocol_info
+            self.instances[instance_name]['meta'] = {}
+            self.instances[instance_name]['meta'].update({'instance_number' :
+                                                          instance_number})
+            device_alias = self.docs[device_id]['alias']
+            instance_alias = '_'.join((str(item) for item in (device_alias, protocol,
+                                       instance_number)))
+            self.instances[instance_name]['meta'].update({'instance_alias' :
+                                                          instance_alias})
             components = protocol_info['components']
             component_info = {}
             for component in components:
@@ -108,6 +119,7 @@ class CypressBuilder():
 
     def _generate_global_components(self):
         # Determine global components needed
+        # TODO: Rename enabled_global_components to enabled_base_components
         protocols = []
         for components in self.private_components.values():
             if 'power' in components:
@@ -125,6 +137,7 @@ class CypressBuilder():
 
     def _generate_params(self):
         # Generate params file
+        # TODO: Right now this is only set up to enable or disable components
         self.params_list = []
         self.params_dict = {component : ({'CY_REMOVE' : 'false', 'CY_SUPPRESS_API_GEN' : 'false'}
                                     if component in self.enabled_components else
@@ -142,7 +155,7 @@ class CypressBuilder():
         with open(self.paths['params'], 'w') as params_file:
             params_file.write(param_lines)
 
-    def build_project(self, params=False):
+    def build_project(self, params=False, **kwargs):
         cmd_list = [self.paths['cyprjmgr'], '-wrk', self.paths['workspace'], '-prj',
                 self.project_name, '-build']
         if params:
@@ -150,6 +163,57 @@ class CypressBuilder():
         print(' '.join(cmd_list))
         result = subprocess.call(cmd_list)
         return result
+
+    def write_globals_file(self):
+        head = ["#ifndef PERIPHERAL_GLOBALS_H",
+                "#define PERIPHERAL_GLOBALS_H"]
+        tail = ["#endif"]
+        body = []
+        body.extend(head)
+        body.append('\n')
+        activated_global_components = set(self.global_components)
+        for global_component in self.master:
+            if global_component in activated_global_components:
+                activated = 1
+            else:
+                activated = 0
+            define_str = ("#define {0}_ACTIVATED {1}u"
+                          .format(global_component.upper(), activated))
+            body.append(define_str)
+        body.append('\n')
+        for device in self.instances:
+            # Get alias
+            instance_alias = self.instances[device]['meta']['instance_alias']
+
+            # Check for attached components
+            subcomponents = self.private_components[device]
+            for subcomponent in subcomponents:
+                param_value = subcomponents[subcomponent]['count']
+                define_str = ("#define {0}_{1} {2}"
+                                .format(instance_alias.upper(),
+                                        subcomponent.upper(), param_value))
+                body.append(define_str)
+
+            # Define device params
+            dynamic_params = self.instances[device]['dynamic']
+            for param, value in dynamic_params.items():
+                if hasattr(value, "__len__") and not isinstance(value, str):
+                    for num, item in enumerate(value):
+                        if isinstance(item, str):
+                            item = '"' + item + '"'
+                        define_str = ("#define {0}_{1}_{2} {3}"
+                                    .format(instance_alias.upper(),
+                                            param.upper(), num,
+                                            item))
+                else:
+                    if isinstance(value, str):
+                        value = '"' + value + '"'
+                    define_str = ("#define {0}_{1} {2}"
+                                  .format(instance_alias.upper(), param.upper(), value))
+                body.append(define_str)
+            body.append('\n')
+            body.extend(tail)
+            return body
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file

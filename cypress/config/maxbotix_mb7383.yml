@@ -3,6 +3,7 @@ identifier : "urn:maxbotix:mb7383"
 manufacturer : "Maxbotix"
 name : "MB7383 HRXL-MaxSonar-WRLST"
 description : "High performance ultrasonic rangefinder"
+alias : "mb7383"
 
 # Metadata
 pinout:
@@ -32,17 +33,21 @@ supported_communication_protocols:
             flow_control : "none"
             logic_level : "high"
         dynamic:
-            baud_rate : 9600
+            baud : 9600
             on_time : 800
-            parsing_logic:
-                nvars : 1
-                str_starts :
-                    - "\rR"
-                str_ends :
-                    - "\r"
-                labels :
-                    - "maxbotix_depth"
-                regex : "\rR([0-9]+)\r"
+            buffer_len : 5
+            nvars : 1
+            str_start :
+                - "\rR"
+            str_end :
+                - "\r"
+            label :
+                - "maxbotix_depth"
+            regex : "\rR([0-9]+)\r"
+            invalid :
+                - -9999
+            default :
+                - -9999
         components:
             - "generic_uart_rx"
             - "power"
