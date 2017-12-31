@@ -10,7 +10,6 @@
 #define GENERIC_UART_CONTROL_H
 
 #include <project.h>
-#include "peripherals.h"
 #include "device_dict.h"
 
 #define MAX_EXTRACT_BUFFER_SIZE 16       

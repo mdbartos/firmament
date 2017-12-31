@@ -1,17 +1,10 @@
 #include <project.h>
-#include "peripherals.h"
+#include "peripheral_instances.h"
 #include "generic_uart_control.h"
 #include "analog_delsig_control.h"
 #include "i2c_control.h"
-#include "mb7383_ttl_0.h"
-#include "mb7383_ttl_1.h"
-#include "gs3_ttl_0.h"
-#include "battery_internal_0.h"
-#include "atlas_do_i2c_0.h"
 #include "strlib.h"
 #include "influxdb.h"
-
-// May need to combine all sensor structs into a single file
 
 #define MAIN_BUFFER_LEN 16
 #define SEND_BUFFER_LEN 2000
