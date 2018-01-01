@@ -250,7 +250,7 @@ class CypressBuilder():
                               .format(dtype, instance_alias,
                                       array, nvars_str, array_elems))
                 body.append(define_str)
-            struct_head = "static DeviceDict {0}=\n{{".format(instance_alias)
+            struct_head = "static DeviceDict {0} = \n{{".format(instance_alias)
             body.append(struct_head)
             for param, struct_label in protocol_info['struct_elems'].items():
                 if param in protocol_info['dynamic_memory']:
@@ -328,6 +328,7 @@ if __name__ == "__main__":
     builder = CypressBuilder()
     builder.write_params_file()
     builder.write_globals_file()
+    builder.write_instances_file()
     builder.build_project(params=True)
     # Need to edit includes and driver files here
     # Need to build project here

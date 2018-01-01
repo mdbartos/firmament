@@ -1,14 +1,14 @@
 generic_uart:
     dynamic_memory:
-        labels:
+        label:
             type: "char*" 
-        readings:
+        reading:
             type: "float"
         invalid:
             type: "float"
-        str_starts:
+        str_start:
             type: "char*"
-        str_ends:
+        str_end:
             type: "char*"
     struct_elems:
         baud : "baud"
@@ -16,16 +16,16 @@ generic_uart:
         generic_uart_rx : "mux_term"
         power : "power_term"
         nvars : "nvars"
-        readings : "readings"
-        labels : "labels"
+        reading : "readings"
+        label : "labels"
         invalid : "invalid"
-        str_starts : "str_starts"
-        str_ends : "str_ends"
+        str_start : "str_starts"
+        str_end : "str_ends"
 analog_delsig:
     dynamic_memory:
-        labels:
+        label:
             type: "char*" 
-        readings:
+        reading:
             type: "float"
         invalid:
             type: "float"
@@ -37,14 +37,14 @@ analog_delsig:
         analog_gain_numerator : "analog_gain_numerator"
         analog_gain_denominator : "analog_gain_denominator"
         nvars : "nvars"
-        readings : "readings"
-        labels : "labels"
+        reading : "readings"
+        label : "labels"
         invalid : "invalid"
 analog_sar:
     dynamic_memory:
-        labels:
+        label:
             type: "char*" 
-        readings:
+        reading:
             type: "float"
         invalid:
             type: "float"
@@ -56,7 +56,7 @@ analog_sar:
         analog_gain_numerator : "analog_gain_numerator"
         analog_gain_denominator : "analog_gain_denominator"
         nvars : "nvars"
-        readings : "readings"
-        labels : "labels"
+        reading : "readings"
+        label : "labels"
         invalid : "invalid"
 
