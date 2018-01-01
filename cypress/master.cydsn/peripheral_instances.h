@@ -29,18 +29,18 @@ static DeviceDict atlas_do_i2c_0 =
 };
 
 // Battery internal
-char *battery_internal_0_labels[BATTERY_INTERNAL_0_NVARS] = {BATTERY_INTERNAL_0_LABEL_0};
-float battery_internal_0_readings[BATTERY_INTERNAL_0_NVARS] = {BATTERY_INTERNAL_0_DEFAULT_0};
-float battery_internal_0_invalid[BATTERY_INTERNAL_0_NVARS] = {BATTERY_INTERNAL_0_INVALID_0};
+char *battery_internal_0_labels[BATTERY_INTERNAL_ANALOG_DELSIG_0_NVARS] = {BATTERY_INTERNAL_ANALOG_DELSIG_0_LABEL_0};
+float battery_internal_0_readings[BATTERY_INTERNAL_ANALOG_DELSIG_0_NVARS] = {BATTERY_INTERNAL_ANALOG_DELSIG_0_DEFAULT_0};
+float battery_internal_0_invalid[BATTERY_INTERNAL_ANALOG_DELSIG_0_NVARS] = {BATTERY_INTERNAL_ANALOG_DELSIG_0_INVALID_0};
 static DeviceDict battery_internal_0 = 
 {
-    .on_time = BATTERY_INTERNAL_0_ON_TIME,
-    .mux_term = BATTERY_INTERNAL_0_POWER_TERMINAL,
-    .power_term = BATTERY_INTERNAL_0_POWER_TERMINAL,
-    .nvars = BATTERY_INTERNAL_0_NVARS,
-    .analog_convert_volts = BATTERY_INTERNAL_0_ANALOG_CONVERT_VOLTS,
-    .analog_gain_numerator = BATTERY_INTERNAL_0_ANALOG_GAIN_NUMERATOR,
-    .analog_gain_denominator = BATTERY_INTERNAL_0_ANALOG_GAIN_DENOMINATOR,
+    .on_time = BATTERY_INTERNAL_ANALOG_DELSIG_0_ON_TIME,
+    .mux_term = BATTERY_INTERNAL_ANALOG_DELSIG_0_POWER,
+    .power_term = BATTERY_INTERNAL_ANALOG_DELSIG_0_POWER,
+    .nvars = BATTERY_INTERNAL_ANALOG_DELSIG_0_NVARS,
+    .analog_convert_volts = BATTERY_INTERNAL_ANALOG_DELSIG_0_ANALOG_CONVERT_VOLTS,
+    .analog_gain_numerator = BATTERY_INTERNAL_ANALOG_DELSIG_0_ANALOG_GAIN_NUMERATOR,
+    .analog_gain_denominator = BATTERY_INTERNAL_ANALOG_DELSIG_0_ANALOG_GAIN_DENOMINATOR,
     .readings = &battery_internal_0_readings,
     .labels = &battery_internal_0_labels,
     .invalid = &battery_internal_0_invalid
@@ -54,10 +54,10 @@ char *gs3_ttl_0_str_starts[GS3_TTL_0_NVARS] = {GS3_TTL_0_STR_START_0, GS3_TTL_0_
 char *gs3_ttl_0_str_ends[GS3_TTL_0_NVARS] = {GS3_TTL_0_STR_END_0, GS3_TTL_0_STR_END_1, GS3_TTL_0_STR_END_2, GS3_TTL_0_STR_END_3};
 static DeviceDict gs3_ttl_0 = 
 {
-    .baud = GS3_TTL_0_UART_BAUD,
+    .baud = GS3_TTL_0_BAUD,
     .on_time = GS3_TTL_0_ON_TIME,
-    .mux_term = GS3_TTL_0_UART_MUX_TERMINAL,
-    .power_term = GS3_TTL_0_POWER_TERMINAL,
+    .mux_term = GS3_TTL_0_GENERIC_UART_RX,
+    .power_term = GS3_TTL_0_POWER,
     .nvars = GS3_TTL_0_NVARS,
     .readings = &gs3_ttl_0_readings,
     .labels = &gs3_ttl_0_labels,
@@ -74,10 +74,10 @@ char *mb7383_ttl_0_str_starts[MB7383_TTL_0_NVARS] = {MB7383_TTL_0_STR_START_0};
 char *mb7383_ttl_0_str_ends[MB7383_TTL_0_NVARS] = {MB7383_TTL_0_STR_END_0};
 static DeviceDict mb7383_ttl_0 = 
 {
-    .baud = MB7383_TTL_0_UART_BAUD,
+    .baud = MB7383_TTL_0_BAUD,
     .on_time = MB7383_TTL_0_ON_TIME,
-    .mux_term = MB7383_TTL_0_UART_MUX_TERMINAL,
-    .power_term = MB7383_TTL_0_POWER_TERMINAL,
+    .mux_term = MB7383_TTL_0_GENERIC_UART_RX,
+    .power_term = MB7383_TTL_0_POWER,
     .nvars = MB7383_TTL_0_NVARS,
     .readings = &mb7383_ttl_0_readings,
     .labels = &mb7383_ttl_0_labels,
@@ -94,10 +94,10 @@ char *mb7383_ttl_1_str_starts[MB7383_TTL_1_NVARS] = {MB7383_TTL_1_STR_START_0};
 char *mb7383_ttl_1_str_ends[MB7383_TTL_1_NVARS] = {MB7383_TTL_1_STR_END_0};
 static DeviceDict mb7383_ttl_1 = 
 {
-    .baud = MB7383_TTL_1_UART_BAUD,
+    .baud = MB7383_TTL_1_BAUD,
     .on_time = MB7383_TTL_1_ON_TIME,
-    .mux_term = MB7383_TTL_1_UART_MUX_TERMINAL,
-    .power_term = MB7383_TTL_1_POWER_TERMINAL,
+    .mux_term = MB7383_TTL_1_GENERIC_UART_RX,
+    .power_term = MB7383_TTL_1_POWER,
     .nvars = MB7383_TTL_1_NVARS,
     .readings = &mb7383_ttl_1_readings,
     .labels = &mb7383_ttl_1_labels,
