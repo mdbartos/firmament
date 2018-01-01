@@ -17,6 +17,7 @@ paths = {
         'params' : '../master.cydsn/params',
         'globals' : '../master.cydsn/peripheral_globals.h',
         'instances' : '../master.cydsn/peripheral_instances.h',
+        'calls' : '../master.cydsn/peripheral_calls.c',
         }
 
 project_name = 'master'
@@ -173,7 +174,7 @@ class CypressBuilder():
     def write_globals_file(self):
         head = ["#ifndef PERIPHERAL_GLOBALS_H",
                 "#define PERIPHERAL_GLOBALS_H"]
-        tail = ["#endif"]
+        tail = ["#endif", "/* [] END OF FILE */"]
         body = []
         body.extend(head)
         body.append('\n')
@@ -227,7 +228,7 @@ class CypressBuilder():
     def write_instances_file(self):
         head = ["#ifndef PERIPHERAL_INSTANCES_H",
                 "#define PERIPHERAL_INSTANCES_H"]
-        tail = ["#endif"]
+        tail = ["#endif", "/* [] END OF FILE */"]
         body = []
         body.extend(head)
         body.append('\n')
@@ -268,6 +269,56 @@ class CypressBuilder():
         body = '\n'.join(body)
         with open(paths['instances'], 'w') as instances_file:
             instances_file.write(body)
+
+    def write_calls_file(self):
+        head = ['#include "peripheral_globals.h"',
+                '#include "peripheral_instances.h"',
+                '#include "strlib.h"',
+                '#include "public_vars.h"',
+                '\n',
+                '#if GENERIC_UART_ACTIVATED',
+                '    #include "generic_uart_control.h"',
+                '#endif',
+                '\n',
+                '#if ANALOG_DELSIG_ACTIVATED',
+                '    #include "analog_delsig_control.h"',
+                '#endif',
+                '\n',
+                '#if I2C_ACTIVATED',
+                '    #include "i2c_control.h"',
+                '#endif',
+                '\n',
+                'char *labels[MAIN_BUFFER_LEN] = {0};',
+                'float readings[MAIN_BUFFER_LEN] = {0};',
+                'int array_ix = 0u;']
+        tail = ['/* [] END OF FILE */']
+        body = []
+        body.extend(head)
+        body.append('\n')
+        body.append('uint8 run_peripherals(){')
+        for device in self.instances:
+            # Get alias
+            instance_alias = self.instances[device]['meta']['instance_alias']
+            protocol = self.instances[device]['meta']['protocol']
+            base_protocol = self.aliases['protocols'][protocol]
+            define_str = ("    {0}_get_reading({1});"
+                          .format(base_protocol, instance_alias))
+            body.append(define_str)
+        body.append('    return 1u;\n}\n')
+        body.append('uint8 zip_peripherals(){')
+        for device in self.instances:
+            # Get alias
+            instance_alias = self.instances[device]['meta']['instance_alias']
+            define_str = ("    zip_measurements(labels, readings, {0}, &array_ix, MAIN_BUFFER_LEN);"
+                          .format(instance_alias))
+            body.append(define_str)
+        body.append('    return 1u;\n}\n')
+        body.extend(tail)
+        body = '\n'.join(body)
+        print(body)
+        # with open(paths['calls'], 'w') as calls_file:
+        #     calls_file.write(body)
+
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file
@@ -329,6 +380,7 @@ if __name__ == "__main__":
     builder.write_params_file()
     builder.write_globals_file()
     builder.write_instances_file()
+    builder.write_calls_file()
     builder.build_project(params=True)
     # Need to edit includes and driver files here
     # Need to build project here
