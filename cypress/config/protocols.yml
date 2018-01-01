@@ -31,7 +31,7 @@ analog_delsig:
             type: "float"
     struct_elems:
         on_time : "on_time"
-        generic_uart_rx : "mux_term"
+        analog_delsig_signal : "mux_term"
         power : "power_term"
         analog_convert_volts : "analog_convert_volts"
         analog_gain_numerator : "analog_gain_numerator"
@@ -50,7 +50,7 @@ analog_sar:
             type: "float"
     struct_elems:
         on_time : "on_time"
-        generic_uart_rx : "mux_term"
+        analog_sar_signal : "mux_term"
         power : "power_term"
         analog_convert_volts : "analog_convert_volts"
         analog_gain_numerator : "analog_gain_numerator"

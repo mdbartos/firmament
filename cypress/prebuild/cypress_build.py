@@ -4,6 +4,7 @@ import itertools
 import yaml
 from bs4 import BeautifulSoup
 
+# TODO: Fix bad relative paths
 paths = {
         'config' : '../config/device_config.yml',
         'locations' : '../config/device_locations.yml',
@@ -207,7 +208,7 @@ class CypressBuilder():
                 if hasattr(value, "__len__") and not isinstance(value, str):
                     for num, item in enumerate(value):
                         if isinstance(item, str):
-                            item = '"' + item + '"'
+                            item = '"' + item.encode('unicode_escape').decode('ascii') + '"'
                         define_str = ("#define {0}_{1}_{2} {3}"
                                     .format(instance_alias.upper(),
                                             param.upper(), num,
@@ -227,7 +228,10 @@ class CypressBuilder():
 
     def write_instances_file(self):
         head = ["#ifndef PERIPHERAL_INSTANCES_H",
-                "#define PERIPHERAL_INSTANCES_H"]
+                "#define PERIPHERAL_INSTANCES_H",
+                '\n',
+                '#include "peripheral_globals.h"',
+                '#include "device_dict.h"']
         tail = ["#endif", "/* [] END OF FILE */"]
         body = []
         body.extend(head)
@@ -242,9 +246,14 @@ class CypressBuilder():
             for array in protocol_info['dynamic_memory']:
                 dtype = protocol_info['dynamic_memory'][array]['type']
                 nvars_str = "{0}_NVARS".format(instance_alias.upper())
+                # TODO: Messy implementation
+                if array == 'reading':
+                    array_elem = 'default'.upper()
+                else:
+                    array_elem = array.upper()
                 array_elems = ', '.join(("{0}_{1}_{2}"
                                          .format(instance_alias.upper(),
-                                                 array.upper(),
+                                                 array_elem,
                                                  num)
                                                  for num in range(nvars)))
                 define_str = ("{0} {1}_{2}[{3}] = {{{4}}};"
@@ -260,7 +269,7 @@ class CypressBuilder():
                 else:
                     ptr_flag = ''
                     value = "{0}_{1}".format(instance_alias.upper(), param.upper())
-                define_str = "    .{0} = {1}{2}".format(struct_label, ptr_flag,
+                define_str = "    .{0} = {1}{2},".format(struct_label, ptr_flag,
                                                         value)
                 body.append(define_str)
             struct_tail = "\n};\n"
@@ -315,9 +324,8 @@ class CypressBuilder():
         body.append('    return 1u;\n}\n')
         body.extend(tail)
         body = '\n'.join(body)
-        print(body)
-        # with open(paths['calls'], 'w') as calls_file:
-        #     calls_file.write(body)
+        with open(paths['calls'], 'w') as calls_file:
+            calls_file.write(body)
 
 
     def _modify_dwr(self):
@@ -382,7 +390,6 @@ if __name__ == "__main__":
     builder.write_instances_file()
     builder.write_calls_file()
     builder.build_project(params=True)
-    # Need to edit includes and driver files here
-    # Need to build project here
+    # Need to implement pin rewrites here
     builder._modify_dwr()
 

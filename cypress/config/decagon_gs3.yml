@@ -37,12 +37,16 @@ supported_communication_protocols:
                 - " "
                 - "\r"
                 - "\r\n"
+            default :
+                - -9999
+                - -9999
+                - -9999
+                - -9999
             invalid :
                 - -9999
                 - -9999
                 - -9999
                 - -9999
-            regex : "\t([0-9.]+) ([0-9.]+) ([0-9.]+)\rw([0-9]+)\r\n"
             label:
                 - "decagon_soil_dielec"
                 - "decagon_soil_temp"
