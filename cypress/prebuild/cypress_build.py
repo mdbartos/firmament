@@ -328,7 +328,7 @@ class CypressBuilder():
             calls_file.write(body)
 
 
-    def _modify_dwr(self):
+    def modify_dwr(self):
         #### This needs to be done after building the project with the params file
         #### because there's no other way to know the key for each pin
 
@@ -362,6 +362,7 @@ class CypressBuilder():
         for pin_name, pin_id in pins.items():
             assigned_pin = pin_ports.find('group', key=pin_id)
             unassigned_pin = unassigned.find('group', key=pin_id)
+            pin_port = desired_pins[pin_name]
             if unassigned_pin:
                 print(unassigned_pin)
                 unassigned_pin.decompose()
@@ -369,12 +370,12 @@ class CypressBuilder():
                 unassigned.insert_before(newgroup)
                 new_innergroup = s.new_tag('group', key="0")
                 newgroup.append(new_innergroup)
-                newdata = s.new_tag('data', key='Port Format', value='69,420')
+                newdata = s.new_tag('data', key='Port Format', value=pin_port)
                 new_innergroup.append(newdata)
             elif assigned_pin:
                 print(assigned_pin)
                 existing_entry = assigned_pin.find('data')
-                existing_entry['value'] = '420,69'
+                existing_entry['value'] = pin_port
 
         # Does this need to be done?
         unassigned.decompose()
@@ -391,5 +392,6 @@ if __name__ == "__main__":
     builder.write_calls_file()
     builder.build_project(params=True)
     # Need to implement pin rewrites here
-    builder._modify_dwr()
+    # TODO: param generator doesn't seem to disable all unnecessary components
+    builder.modify_dwr()
 
