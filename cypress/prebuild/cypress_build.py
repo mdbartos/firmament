@@ -265,7 +265,9 @@ class CypressBuilder():
             struct_tail = "\n};\n"
             body.append(struct_tail)
         body.extend(tail)
-        return body
+        body = '\n'.join(body)
+        with open(paths['instances'], 'w') as instances_file:
+            instances_file.write(body)
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file
