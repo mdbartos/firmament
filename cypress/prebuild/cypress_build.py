@@ -9,6 +9,7 @@ paths = {
         'locations' : '../config/device_locations.yml',
         'aliases' : '../config/psoc_aliases.yml',
         'master' : '../config/master_component_list.yml',
+        'protocols' : '../config/protocols.yml',
         'project' : '../master.cydsn',
         'workspace' : '../master.cywrk',
         'cyprjmgr' : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe',
@@ -30,7 +31,7 @@ class CypressBuilder():
         self.locations = {}
         self.docs = {}
         self.instances = {}
-        self.devices = {}
+        self.protocols = {}
         self.aliases = {}
         self.master = {}
 
@@ -70,6 +71,9 @@ class CypressBuilder():
         with open(self.paths['master'], 'r') as stream:
             self.master.update(yaml.load(stream))
 
+        # Get protocol info
+        with open(self.paths['protocols'], 'r') as stream:
+            self.protocols.update(yaml.load(stream))
 
     def _generate_private_components(self):
         # Determine device-specific requirements
@@ -101,6 +105,8 @@ class CypressBuilder():
                                        instance_number)))
             self.instances[instance_name]['meta'].update({'instance_alias' :
                                                           instance_alias})
+            self.instances[instance_name]['meta'].update({'protocol' :
+                                                           protocol})
             components = protocol_info['components']
             component_info = {}
             for component in components:
@@ -217,6 +223,49 @@ class CypressBuilder():
         body = '\n'.join(body)
         with open(paths['globals'], 'w') as globals_file:
             globals_file.write(body)
+
+    def write_instances_file(self):
+        head = ["#ifndef PERIPHERAL_INSTANCES_H",
+                "#define PERIPHERAL_INSTANCES_H"]
+        tail = ["#endif"]
+        body = []
+        body.extend(head)
+        body.append('\n')
+        for device in self.instances:
+            # Get alias
+            instance_alias = self.instances[device]['meta']['instance_alias']
+            nvars = self.instances[device]['dynamic']['nvars']
+            protocol = self.instances[device]['meta']['protocol']
+            base_protocol = self.aliases['protocols'][protocol]
+            protocol_info = self.protocols[base_protocol]
+            for array in protocol_info['dynamic_memory']:
+                dtype = protocol_info['dynamic_memory'][array]['type']
+                nvars_str = "{0}_NVARS".format(instance_alias.upper())
+                array_elems = ', '.join(("{0}_{1}_{2}"
+                                         .format(instance_alias.upper(),
+                                                 array.upper(),
+                                                 num)
+                                                 for num in range(nvars)))
+                define_str = ("{0} {1}_{2}[{3}] = {{{4}}};"
+                              .format(dtype, instance_alias,
+                                      array, nvars_str, array_elems))
+                body.append(define_str)
+            struct_head = "static DeviceDict {0}=\n{{".format(instance_alias)
+            body.append(struct_head)
+            for param, struct_label in protocol_info['struct_elems'].items():
+                if param in protocol_info['dynamic_memory']:
+                    ptr_flag = '&'
+                    value = "{0}_{1}".format(instance_alias, param)
+                else:
+                    ptr_flag = ''
+                    value = "{0}_{1}".format(instance_alias.upper(), param.upper())
+                define_str = "    .{0} = {1}{2}".format(struct_label, ptr_flag,
+                                                        value)
+                body.append(define_str)
+            struct_tail = "\n};\n"
+            body.append(struct_tail)
+        body.extend(tail)
+        return body
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file
