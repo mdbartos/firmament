@@ -23,31 +23,31 @@ supported_communication_protocols:
             flow_control : "none"
             logic_level : "high"
         dynamic:
-            baud_rate : 1200
+            baud : 1200
             on_time : 800
-            parsing_logic:
-                nvars : 4
-                str_starts :
-                    - "\t"
-                    - " "
-                    - " "
-                    - "w"
-                str_ends :
-                    - " "
-                    - " "
-                    - "\r"
-                    - "\r\n"
-                invalid :
-                    - -9999
-                    - -9999
-                    - -9999
-                    - -9999
-                regex : "\t([0-9.]+) ([0-9.]+) ([0-9.]+)\rw([0-9]+)\r\n"
-                labels:
-                    - "decagon_soil_dielec"
-                    - "decagon_soil_temp"
-                    - "decagon_soil_conduct"
-                    - "decagon_checksum"
+            nvars : 4
+            buffer_len : 5
+            str_start :
+                - "\t"
+                - " "
+                - " "
+                - "w"
+            str_end :
+                - " "
+                - " "
+                - "\r"
+                - "\r\n"
+            invalid :
+                - -9999
+                - -9999
+                - -9999
+                - -9999
+            regex : "\t([0-9.]+) ([0-9.]+) ([0-9.]+)\rw([0-9]+)\r\n"
+            label:
+                - "decagon_soil_dielec"
+                - "decagon_soil_temp"
+                - "decagon_soil_conduct"
+                - "decagon_checksum"
         components:
             - "generic_uart_rx"
             - "power"

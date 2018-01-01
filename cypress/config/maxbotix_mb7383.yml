@@ -45,7 +45,7 @@ supported_communication_protocols:
                 - "maxbotix_depth"
             regex : "\rR([0-9]+)\r"
             invalid :
-                - -9999
+                - 9999
             default :
                 - -9999
         components:

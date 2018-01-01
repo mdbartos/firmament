@@ -15,21 +15,45 @@ output_variables:
 default_communication_protocol : "analog_delsig"
 supported_communication_protocols:
     analog_sar:
-        scale_factor_numerator: "vcc"
-        scale_factor_denominator: 10240
-        resolution_bits : 12
-        conversion_rate_sps : 631579
-        sample_rate : "free running"
-        clock_source : "internal"
-        input_range: "vss_to_vref"
-        reference: "int_ref_bypass"
+        dynamic :
+            analog_convert_volts : 1
+            analog_gain_numerator : 1.0
+            analog_gain_denominator : 11.0
+            on_time : 800
+            nvars : 1
+            invalid :
+                - 9999
+            default :
+                - -9999
+            label :
+                - "v_bat"
+        static :
+            resolution_bits : 12
+            conversion_rate_sps : 631579
+            sample_rate : "free running"
+            clock_source : "internal"
+            input_range: "vss_to_vref"
+            reference: "int_ref_bypass"
         components:
             - "analog_sar_signal"
             - "power"
     analog_delsig:
-        scale_factor_numerator: "vcc"
-        scale_factor_denominator: 10240
-        resolution_bits : 20
+        dynamic :
+            analog_convert_volts : 1
+            analog_gain_numerator : 1.0
+            analog_gain_denominator : 11.0
+            on_time : 800
+            nvars : 1
+            invalid :
+                - 9999
+            default :
+                - -9999
+            label :
+                - "v_bat"
+        static :
+            scale_factor_numerator: "vcc"
+            scale_factor_denominator: 10240
+            resolution_bits : 20
         components:
             - "analog_delsig_signal"
             - "power"

@@ -29,7 +29,6 @@ class CypressBuilder():
         self.config = {}
         self.locations = {}
         self.docs = {}
-        # TODO: Rename protocol docs to instances
         self.instances = {}
         self.devices = {}
         self.aliases = {}
@@ -75,6 +74,7 @@ class CypressBuilder():
     def _generate_private_components(self):
         # Determine device-specific requirements
         # TODO: Separate building instance dict from private components
+        # TODO: Private components can be rolled into instances
         private_component_list = []
         self.private_components = {}
         device_ids = []
@@ -205,15 +205,18 @@ class CypressBuilder():
                                     .format(instance_alias.upper(),
                                             param.upper(), num,
                                             item))
+                        body.append(define_str)
                 else:
                     if isinstance(value, str):
                         value = '"' + value + '"'
                     define_str = ("#define {0}_{1} {2}"
                                   .format(instance_alias.upper(), param.upper(), value))
-                body.append(define_str)
+                    body.append(define_str)
             body.append('\n')
-            body.extend(tail)
-            return body
+        body.extend(tail)
+        body = '\n'.join(body)
+        with open(paths['globals'], 'w') as globals_file:
+            globals_file.write(body)
 
     def _modify_dwr(self):
         #### This needs to be done after building the project with the params file
@@ -273,6 +276,7 @@ class CypressBuilder():
 if __name__ == "__main__":
     builder = CypressBuilder()
     builder.write_params_file()
+    builder.write_globals_file()
     builder.build_project(params=True)
     # Need to edit includes and driver files here
     # Need to build project here
