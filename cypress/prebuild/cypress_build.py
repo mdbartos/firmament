@@ -350,8 +350,8 @@ class CypressBuilder():
         # Get pin ids
         # TODO: This does not capture internal pins
         pins = {}
-        pin_ids = s.find('group', key='Pin')
-        pin_ids = pin_ids.find_all('data')
+        pin_group = s.find('group', key='Pin')
+        pin_ids = pin_group.find_all('data')
         for pin in pin_ids:
             pins[pin['value']] = pin['key']
 
@@ -362,23 +362,28 @@ class CypressBuilder():
         for pin_name, pin_id in pins.items():
             assigned_pin = pin_ports.find('group', key=pin_id)
             unassigned_pin = unassigned.find('group', key=pin_id)
-            pin_port = desired_pins[pin_name]
-            if unassigned_pin:
-                print(unassigned_pin)
-                unassigned_pin.decompose()
-                newgroup = s.new_tag('group', key=pin_id)
-                unassigned.insert_before(newgroup)
-                new_innergroup = s.new_tag('group', key="0")
-                newgroup.append(new_innergroup)
-                newdata = s.new_tag('data', key='Port Format', value=pin_port)
-                new_innergroup.append(newdata)
-            elif assigned_pin:
-                print(assigned_pin)
-                existing_entry = assigned_pin.find('data')
-                existing_entry['value'] = pin_port
+            if pin_name in desired_pins:
+                pin_port = desired_pins[pin_name]
+                if unassigned_pin:
+                    print(unassigned_pin)
+                    unassigned_pin.decompose()
+                    newgroup = s.new_tag('group', key=pin_id)
+                    unassigned.insert_before(newgroup)
+                    new_innergroup = s.new_tag('group', key="0")
+                    newgroup.append(new_innergroup)
+                    newdata = s.new_tag('data', key='Port Format', value=pin_port)
+                    new_innergroup.append(newdata)
+                elif assigned_pin:
+                    print(assigned_pin)
+                    existing_entry = assigned_pin.find('data')
+                    existing_entry['value'] = pin_port
+            # Remove pin if it wasn't specified in config
+            else:
+                extraneous_entry = pin_group.find('data', key=pin_id)
+                extraneous_entry.decompose()
 
-        # Does this need to be done?
-        unassigned.decompose()
+        # TODO: Does this need to be done?
+        # unassigned.decompose()
         print(pin_ports.prettify())
 
         # Write design wide resources file
