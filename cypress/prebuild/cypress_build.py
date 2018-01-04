@@ -352,7 +352,7 @@ class CypressBuilder():
             x = ''.join(dwr_file.readlines())
 
         # Parse XML
-        s = BeautifulSoup(x, 'lxml')
+        s = BeautifulSoup(x, 'xml')
 
         # Get pin ids
         # TODO: This does not capture internal pins
