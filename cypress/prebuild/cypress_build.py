@@ -337,7 +337,6 @@ class CypressBuilder():
         with open(paths['calls'], 'w') as calls_file:
             calls_file.write(body)
 
-
     def modify_dwr(self):
         # Get desired pins from config file
         desired_pins = {}
@@ -346,50 +345,44 @@ class CypressBuilder():
                 component_name = "{0}_{1}".format(subcomponent, info['count'])
                 port = info['port']
                 desired_pins[component_name] = port
-
         # Read design-wide resources
         with open(self.paths['dwr']) as dwr_file:
             x = ''.join(dwr_file.readlines())
-
+        # Find first tag
+        x = x[x.find('<'):]
         # Parse XML
         s = BeautifulSoup(x, 'xml')
-
         # Get pin ids
         # TODO: This does not capture internal pins
         pins = {}
-        pin_group = s.find('group', key='Pin')
-        pin_ids = pin_group.find_all('data')
+        pin_group = s.find('Group', key='Pin')
+        pin_ids = pin_group.find_all('Data')
         # TODO: This does not account for duplicately-named pins
         for pin in pin_ids:
             pins[pin['value']] = pin['key']
-
         # Write ports
-        pin_ports = s.find('group', key='Pin2')
-        unassigned = pin_ports.find('group', key='UnAssigned Pins')
-
+        pin_ports = s.find('Group', key='Pin2')
+        unassigned = pin_ports.find('Group', key='UnAssigned Pins')
         for pin_name, pin_id in pins.items():
-            assigned_pin = pin_ports.find('group', key=pin_id)
-            unassigned_pin = unassigned.find('group', key=pin_id)
+            assigned_pin = pin_ports.find('Group', key=pin_id)
+            unassigned_pin = unassigned.find('Group', key=pin_id)
             if pin_name in desired_pins:
                 pin_port = desired_pins[pin_name]
                 if unassigned_pin:
-                    print(unassigned_pin)
                     unassigned_pin.decompose()
-                    newgroup = s.new_tag('group', key=pin_id)
+                    newgroup = s.new_tag('Group', key=pin_id)
                     unassigned.insert_before(newgroup)
-                    new_innergroup = s.new_tag('group', key="0")
+                    new_innergroup = s.new_tag('Group', key="0")
                     newgroup.append(new_innergroup)
-                    newdata = s.new_tag('data', key='Port Format', value=pin_port)
+                    newdata = s.new_tag('Data', key='Port Format', value=pin_port)
                     new_innergroup.append(newdata)
                 elif assigned_pin:
-                    print(assigned_pin)
-                    existing_entry = assigned_pin.find('data')
+                    existing_entry = assigned_pin.find('Data')
                     existing_entry['value'] = pin_port
             # Remove pin if it wasn't specified in config
             else:
-                extraneous_entry = pin_group.find('data', key=pin_id)
+                extraneous_entry = pin_group.find('Data', key=pin_id)
                 extraneous_entry.decompose()
-
         # Write design wide resources file
         with open(paths['dwr'], 'w') as dwr_file:
             dwr_file.write(s.prettify())
