@@ -4,6 +4,15 @@ import itertools
 import yaml
 from bs4 import BeautifulSoup
 
+try:
+    filepath = __file__
+    parent_path = os.path.abspath(os.path.join(
+        os.path.abspath(os.path.join(
+            os.path.realpath(filepath),os.pardir)),
+        os.pardir))
+except:
+    filepath = os.path.realpath(os.curdir)
+
 # TODO: Fix bad relative paths
 paths = {
         'config' : '../config/device_config.yml',
@@ -163,9 +172,10 @@ class CypressBuilder():
         with open(self.paths['params'], 'w') as params_file:
             params_file.write(param_lines)
 
-    def build_project(self, params=False, **kwargs):
+    def build_project(self, commands, params=False, **kwargs):
         cmd_list = [self.paths['cyprjmgr'], '-wrk', self.paths['workspace'], '-prj',
-                self.project_name, '-build']
+                self.project_name]
+        cmd_list.extend(commands)
         if params:
             cmd_list.extend(['-m', self.paths['params']])
         print(' '.join(cmd_list))
@@ -329,9 +339,6 @@ class CypressBuilder():
 
 
     def modify_dwr(self):
-        #### This needs to be done after building the project with the params file
-        #### because there's no other way to know the key for each pin
-
         # Get desired pins from config file
         desired_pins = {}
         for component, subcomponents in self.private_components.items():
@@ -341,8 +348,8 @@ class CypressBuilder():
                 desired_pins[component_name] = port
 
         # Read design-wide resources
-        with open(self.paths['dwr']) as infile:
-            x = ''.join(infile.readlines())
+        with open(self.paths['dwr']) as dwr_file:
+            x = ''.join(dwr_file.readlines())
 
         # Parse XML
         s = BeautifulSoup(x, 'lxml')
@@ -352,6 +359,7 @@ class CypressBuilder():
         pins = {}
         pin_group = s.find('group', key='Pin')
         pin_ids = pin_group.find_all('data')
+        # TODO: This does not account for duplicately-named pins
         for pin in pin_ids:
             pins[pin['value']] = pin['key']
 
@@ -382,12 +390,9 @@ class CypressBuilder():
                 extraneous_entry = pin_group.find('data', key=pin_id)
                 extraneous_entry.decompose()
 
-        # TODO: Does this need to be done?
-        # unassigned.decompose()
-        print(pin_ports.prettify())
-
         # Write design wide resources file
-        ########
+        with open(paths['dwr'], 'w') as dwr_file:
+            dwr_file.write(s.prettify())
 
 if __name__ == "__main__":
     builder = CypressBuilder()
@@ -395,8 +400,7 @@ if __name__ == "__main__":
     builder.write_globals_file()
     builder.write_instances_file()
     builder.write_calls_file()
-    builder.build_project(params=True)
-    # Need to implement pin rewrites here
-    # TODO: param generator doesn't seem to disable all unnecessary components
+    builder.build_project(commands=['-build'], params=True)
     builder.modify_dwr()
+    builder.build_project(commands=['-rebuild'], params=False)
 
