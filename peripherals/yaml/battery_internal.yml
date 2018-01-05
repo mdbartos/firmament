@@ -1,0 +1,61 @@
+# Component description
+identifier : "urn:battery_internal"
+manufacturer : ""
+name : ""
+description : "Read internal battery"
+alias : "battery_internal"
+
+# Data
+output_variables:
+    - name: "battery_voltage"
+      units: "V"
+      data_range : [-12, 12]
+
+# Communications
+default_communication_protocol : "analog_delsig"
+supported_communication_protocols:
+    analog_sar:
+        dynamic :
+            analog_convert_volts : 1
+            analog_gain_numerator : 1.0
+            analog_gain_denominator : 11.0
+            on_time : 800
+            nvars : 1
+            invalid :
+                - 9999
+            default :
+                - -9999
+            label :
+                - "v_bat"
+        static :
+            resolution_bits : 12
+            conversion_rate_sps : 631579
+            sample_rate : "free running"
+            clock_source : "internal"
+            input_range: "vss_to_vref"
+            reference: "int_ref_bypass"
+        components:
+            - "analog_sar_signal"
+            - "power"
+    analog_delsig:
+        dynamic :
+            analog_convert_volts : 1
+            analog_gain_numerator : 1.0
+            analog_gain_denominator : 11.0
+            on_time : 800
+            nvars : 1
+            invalid :
+                - 9999
+            default :
+                - -9999
+            label :
+                - "v_bat"
+        static :
+            scale_factor_numerator: "vcc"
+            scale_factor_denominator: 10240
+            resolution_bits : 20
+        components:
+            - "analog_delsig_signal"
+            - "power"
+
+
