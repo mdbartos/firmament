@@ -405,7 +405,7 @@ class CypressBuilder():
         pin_ports = s.find('Group', key='Pin2')
         pin_ports.clear()
         for pin_name, pin_port in desired_pins.items():
-            guid = self.guid[pin]
+            guid = self.guid[pin_name]
             new_group = s.new_tag('Group', key=guid)
             pin_ports.append(new_group)
             new_innergroup = s.new_tag('Group', key="0")
