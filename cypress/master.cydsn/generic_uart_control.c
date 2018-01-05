@@ -1,5 +1,5 @@
 #include "peripheral_globals.h"
-#if GENERIC_UART_ACTIVATED
+#if (GENERIC_UART_ACTIVATED && POWER_ACTIVATED)
 #include "generic_uart_control.h"
 #include "strlib.h"
 #include "power.h"

@@ -1,5 +1,5 @@
 #include "peripheral_globals.h"
-#if I2C_ACTIVATED
+#if (I2C_ACTIVATED && POWER_ACTIVATED)
 #include "i2c_control.h"
 #include <stdlib.h>
 #include "device_dict.h"

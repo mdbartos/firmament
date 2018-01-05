@@ -1,5 +1,5 @@
 #include "peripheral_globals.h"
-#if ANALOG_DELSIG_ACTIVATED
+#if (ANALOG_DELSIG_ACTIVATED && POWER_ACTIVATED)
 #include "analog_delsig_control.h"
 #include "power.h"
 
