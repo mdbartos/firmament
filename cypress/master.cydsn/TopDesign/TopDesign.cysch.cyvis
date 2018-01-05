@@ -1,0 +1,3085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" release="PSoC Creator  4.1 Update 1" template="Empty (17&quot; x 11&quot;)" xmlns="http://cypress.com/xsd/cyvis">
+  <Page index="0" name="Page 1" enabled="true" shapeCount="48">
+    <Instance shapeName="Shape_1" zorder="0" guid="078e4d33-3336-4b40-b7ee-3bda107de9c9" name="power_demux" component="demux_v1_10">
+      <Location x="141" y="48" />
+      <Size width="42" height="111" />
+      <SubShapes>
+        <ClosedShape>
+          <Point x="150" y="66" />
+          <Point x="174" y="48" />
+          <Point x="174" y="156" />
+          <Point x="150" y="138" />
+          <Point x="150" y="66" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="153.8281" y="151.1631" />
+          <Text>3</Text>
+          <Expression><![CDATA[`=($NumOutputTerminals>8)? 4 : (($NumOutputTerminals>4)? 3 :(($NumOutputTerminals>2)? 2:1))`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="168" y="102" />
+          <Point x="155" y="102" />
+          <Outline dashStyle="Solid" startCap="ArrowAnchor" endCap="Flat" lineJoin="Miter" weight="4.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="power_demux.term0" type="Instance Digital Output">
+          <Location x="180" y="60" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term1" type="Instance Digital Output">
+          <Location x="180" y="72" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term2" type="Instance Digital Output">
+          <Location x="180" y="84" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term3" type="Instance Digital Output">
+          <Location x="180" y="96" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term4" type="Instance Digital Output">
+          <Location x="180" y="108" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term5" type="Instance Digital Output">
+          <Location x="180" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term6" type="Instance Digital Output">
+          <Location x="180" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.term7" type="Instance Digital Output">
+          <Location x="180" y="144" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="power_demux.inTerm" type="Instance Digital Input">
+          <Location x="144" y="102" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Line>
+          <Point x="162" y="150" />
+          <Point x="162" y="147" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="159" y="156" />
+          <Point x="165" y="151.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="power_demux.muxsel[2:0]" type="Instance Digital Input">
+          <Location x="162" y="156" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="168.834" y="58.86309" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="168.8516" y="141.7363" />
+          <Text>7</Text>
+          <Expression>`=$NumOutputTerminals - 1`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_5" zorder="1" guid="572bdd72-ae94-465a-9ffa-45eb174e82d2" name="power_demux_controller" component="CyControlReg_v1_80">
+      <Location x="42.14783" y="152.1686" />
+      <Size width="122.8522" height="41.83138" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="84" y="162" />
+          <Size width="72" height="32" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="42.14783" y="152.1686" />
+          <Text>power_demux_controller</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="84" y="162" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="144, 238, 144" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="93.44714" y="163.8093" />
+          <Text>Control Reg</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopCenter" />
+        </Annotation>
+        <Annotation>
+          <Location x="102.0166" y="182.9385" />
+          <Text>control[2:0]</Text>
+          <Expression>control[`=$NumOutputs-1`:0]</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Terminal name="power_demux_controller.control_bus[2:0]" type="Instance Digital Output">
+          <Location x="162" y="186" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_11" zorder="4" guid="1ad92b4b-b08f-443b-92c2-8d7faa3938cf" name="power_signal" component="CyControlReg_v1_80">
+      <Location x="66" y="68.16863" />
+      <Size width="81" height="41.83137" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="66" y="78" />
+          <Size width="72" height="32" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="power_signal.control_0" type="Instance Digital Output">
+          <Location x="144" y="102" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="92.33287" y="97.70679" />
+          <Text>control_0</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="76.18886" y="68.16863" />
+          <Text>power_signal</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="66" y="78" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="144, 238, 144" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="75.44714" y="79.80934" />
+          <Text>Control Reg</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Wire shapeName="Shape_12" zorder="9" effectiveName="Net_1003" type="Digital">
+      <Point1 x="522" y="120" />
+      <Point2 x="528" y="120" />
+    </Wire>
+    <Wire shapeName="Shape_13" zorder="11" effectiveName="Net_34" type="Digital">
+      <Point1 x="510" y="132" />
+      <Point2 x="528" y="132" />
+    </Wire>
+    <Instance shapeName="Shape_14" zorder="13" guid="575641fd-931b-4322-aa53-5f313934f968" name="generic_uart_mux" component="mux_v1_10">
+      <Location x="483" y="42" />
+      <Size width="42" height="63" />
+      <SubShapes>
+        <ClosedShape>
+          <Point x="492" y="42" />
+          <Point x="516" y="60" />
+          <Point x="516" y="84" />
+          <Point x="492" y="102" />
+          <Point x="492" y="42" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="508.749" y="97.16309" />
+          <Text>2</Text>
+          <Expression><![CDATA[`=($NumInputTerminals>8)? 4 : (($NumInputTerminals>4)? 3 : (($NumInputTerminals>2)? 2:1))`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="512" y="72" />
+          <Point x="499" y="72" />
+          <Outline dashStyle="Solid" startCap="ArrowAnchor" endCap="Flat" lineJoin="Miter" weight="4.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="generic_uart_mux.term0" type="Instance Digital Input">
+          <Location x="486" y="54" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="generic_uart_mux.term1" type="Instance Digital Input">
+          <Location x="486" y="66" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="generic_uart_mux.term2" type="Instance Digital Input">
+          <Location x="486" y="78" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="generic_uart_mux.term3" type="Instance Digital Input">
+          <Location x="486" y="90" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="generic_uart_mux.outTerm" type="Instance Digital Output">
+          <Location x="522" y="72" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Line>
+          <Point x="504" y="96" />
+          <Point x="504" y="93" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="501" y="102" />
+          <Point x="507" y="97.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="generic_uart_mux.muxsel[1:0]" type="Instance Digital Input">
+          <Location x="504" y="102" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="494.834" y="52.86309" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="494.8281" y="87.66309" />
+          <Text>3</Text>
+          <Expression>`=$NumInputTerminals-1`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Wire shapeName="Shape_15" zorder="14" effectiveName="Net_35" type="Digital">
+      <Point1 x="522" y="72" />
+      <Point2 x="528" y="72" />
+    </Wire>
+    <Instance shapeName="Shape_16" zorder="16" guid="74542071-2b4f-4f06-8340-f838f78c4b78" name="generic_uart_mux_controller" component="CyControlReg_v1_80">
+      <Location x="264.057" y="98.16863" />
+      <Size width="140.943" height="41.83137" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="324" y="108" />
+          <Size width="72" height="32" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="264.057" y="98.16863" />
+          <Text>generic_uart_mux_controller</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="324" y="108" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="144, 238, 144" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="333.4471" y="109.8093" />
+          <Text>Control Reg</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopCenter" />
+        </Annotation>
+        <Annotation>
+          <Location x="342.0166" y="128.9385" />
+          <Text>control[1:0]</Text>
+          <Expression>control[`=$NumOutputs-1`:0]</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Terminal name="generic_uart_mux_controller.control_bus[1:0]" type="Instance Digital Output">
+          <Location x="402" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+      </SubShapes>
+    </Instance>
+    <Wire shapeName="Shape_21" zorder="17" effectiveName="Net_74[1:0]" type="Digital">
+      <Point1 x="402" y="102" />
+      <Point2 x="504" y="102" />
+    </Wire>
+    <Wire shapeName="Shape_22" zorder="19" effectiveName="Net_74[1:0]" type="Digital">
+      <Point1 x="402" y="102" />
+      <Point2 x="402" y="132" />
+    </Wire>
+    <Instance shapeName="Shape_23" zorder="21" guid="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" name="generic_uart_rx_0" component="cy_pins_v2_20">
+      <Location x="371.7471" y="49.5" />
+      <Size width="117.2529" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="466.5" y="54" />
+          <Point x="480" y="54" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="477" y="54" />
+          <Point x="474" y="55.5" />
+          <Point x="474" y="52.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="generic_uart_rx_0.fb_0" type="Instance Digital Output">
+          <Location x="486" y="54" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="457.5" y="49.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="371.7471" y="49.6543" />
+          <Text>generic_uart_rx_0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="458" y="52.26172" />
+          <Size width="8" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="457.8633" y="52.26172" />
+          <Text>12[3]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_24" zorder="22" guid="56f8fc6f-8f48-404f-bb48-6840fdde3cfa" name="generic_uart_rx_1" component="cy_pins_v2_20">
+      <Location x="371.7471" y="61.5" />
+      <Size width="117.2529" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="466.5" y="66" />
+          <Point x="480" y="66" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="477" y="66" />
+          <Point x="474" y="67.5" />
+          <Point x="474" y="64.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="generic_uart_rx_1.fb_0" type="Instance Digital Output">
+          <Location x="486" y="66" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="457.5" y="61.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="371.7471" y="61.6543" />
+          <Text>generic_uart_rx_1</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="458" y="64.26172" />
+          <Size width="8" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="457.8633" y="64.26172" />
+          <Text>12[7]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_25" zorder="23" guid="462a5ad2-a441-400c-8b6c-9470e0b50919" name="generic_uart_rx_2" component="cy_pins_v2_20">
+      <Location x="371.7471" y="73.5" />
+      <Size width="117.2529" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="466.5" y="78" />
+          <Point x="480" y="78" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="477" y="78" />
+          <Point x="474" y="79.5" />
+          <Point x="474" y="76.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="generic_uart_rx_2.fb_0" type="Instance Digital Output">
+          <Location x="486" y="78" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="457.5" y="73.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="457.5" y="73.5" />
+          <Point x="466.5" y="82.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="466.5" y="73.5" />
+          <Point x="457.5" y="82.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="371.7471" y="73.6543" />
+          <Text>generic_uart_rx_2</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="461.0352" y="76.26172" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="461.0352" y="76.26172" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_26" zorder="24" guid="fbcc0738-d4ac-4f58-8997-fe8132a4997c" name="generic_uart_rx_3" component="cy_pins_v2_20">
+      <Location x="371.7471" y="85.5" />
+      <Size width="117.2529" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="466.5" y="90" />
+          <Point x="480" y="90" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="477" y="90" />
+          <Point x="474" y="91.5" />
+          <Point x="474" y="88.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="generic_uart_rx_3.fb_0" type="Instance Digital Output">
+          <Location x="486" y="90" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="457.5" y="85.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="457.5" y="85.5" />
+          <Point x="466.5" y="94.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="466.5" y="85.5" />
+          <Point x="457.5" y="94.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="371.7471" y="85.6543" />
+          <Text>generic_uart_rx_3</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="461.0352" y="88.26172" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="461.0352" y="88.26172" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Wire shapeName="Shape_28" zorder="2" effectiveName="Net_6[2:0]" type="Digital">
+      <Point1 x="162" y="132" />
+      <Point2 x="162" y="156" />
+    </Wire>
+    <Wire shapeName="Shape_32" zorder="29" effectiveName="Net_6[2:0]" type="Digital">
+      <Point1 x="162" y="156" />
+      <Point2 x="162" y="186" />
+    </Wire>
+    <Instance shapeName="Shape_35" zorder="31" guid="12c90326-19d3-40e3-80b9-d4b6ea0da483" name="power_0" component="cy_pins_v2_20">
+      <Location x="177" y="55.5" />
+      <Size width="73.50781" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="60" />
+          <Point x="201" y="60" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="60" />
+          <Point x="192" y="61.5" />
+          <Point x="192" y="58.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_0.y_0" type="Instance Digital Input">
+          <Location x="180" y="60" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="55.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="212.3438" y="55.6543" />
+          <Text>power_0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="200" y="58.26172" />
+          <Size width="8" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="199.8633" y="58.26172" />
+          <Text>12[4]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_36" zorder="32" guid="68c25504-54b8-4cbe-921c-568612eee833" name="power_1" component="cy_pins_v2_20">
+      <Location x="177" y="67.5" />
+      <Size width="72.14551" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="72" />
+          <Point x="201" y="72" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="72" />
+          <Point x="192" y="73.5" />
+          <Point x="192" y="70.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_1.y_0" type="Instance Digital Input">
+          <Location x="180" y="72" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="67.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="212.3438" y="67.6543" />
+          <Text>power_1</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="200" y="70.26172" />
+          <Size width="8" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="199.8633" y="70.26172" />
+          <Text>12[6]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_37" zorder="33" guid="b8f0e64f-44b5-4748-a172-758376456fbf" name="power_2" component="cy_pins_v2_20">
+      <Location x="177" y="79.5" />
+      <Size width="73.44434" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="84" />
+          <Point x="201" y="84" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="84" />
+          <Point x="192" y="85.5" />
+          <Point x="192" y="82.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_2.y_0" type="Instance Digital Input">
+          <Location x="180" y="84" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="79.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="212.3438" y="79.6543" />
+          <Text>power_2</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="200.7402" y="82.26172" />
+          <Size width="6.390625" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="200.7402" y="82.26172" />
+          <Text>3[0]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_38" zorder="34" guid="242e7568-a052-4461-9309-a5a63d17cb07" name="power_3" component="cy_pins_v2_20">
+      <Location x="177" y="91.5" />
+      <Size width="73.52734" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="96" />
+          <Point x="201" y="96" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="96" />
+          <Point x="192" y="97.5" />
+          <Point x="192" y="94.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_3.y_0" type="Instance Digital Input">
+          <Location x="180" y="96" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="91.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="199.5" y="91.5" />
+          <Point x="208.5" y="100.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="91.5" />
+          <Point x="199.5" y="100.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="212.3438" y="91.6543" />
+          <Text>power_3</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="203.0352" y="94.26172" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="203.0352" y="94.26172" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_39" zorder="35" guid="3585d580-4f54-4bb0-ad58-26a800572e97" name="power_4" component="cy_pins_v2_20">
+      <Location x="177" y="103.5" />
+      <Size width="73.49316" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="108" />
+          <Point x="201" y="108" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="108" />
+          <Point x="192" y="109.5" />
+          <Point x="192" y="106.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_4.y_0" type="Instance Digital Input">
+          <Location x="180" y="108" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="103.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="199.5" y="103.5" />
+          <Point x="208.5" y="112.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="103.5" />
+          <Point x="199.5" y="112.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="212.3438" y="103.6836" />
+          <Text>power_4</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="203.0352" y="106.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="203.0352" y="106.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_40" zorder="36" guid="47e9fc4f-dde1-4a04-ab86-cf10bcc82e54" name="power_5" component="cy_pins_v2_20">
+      <Location x="177" y="115.5" />
+      <Size width="73.55664" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="120" />
+          <Point x="201" y="120" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="120" />
+          <Point x="192" y="121.5" />
+          <Point x="192" y="118.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_5.y_0" type="Instance Digital Input">
+          <Location x="180" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="115.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="199.5" y="115.5" />
+          <Point x="208.5" y="124.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="115.5" />
+          <Point x="199.5" y="124.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="212.3438" y="115.7764" />
+          <Text>power_5</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="203.0352" y="118.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="203.0352" y="118.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_41" zorder="37" guid="611004ae-9c80-461b-baba-f58492353ce8" name="power_6" component="cy_pins_v2_20">
+      <Location x="177" y="127.5" />
+      <Size width="73.53711" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="132" />
+          <Point x="201" y="132" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="132" />
+          <Point x="192" y="133.5" />
+          <Point x="192" y="130.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_6.y_0" type="Instance Digital Input">
+          <Location x="180" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="127.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="199.5" y="127.5" />
+          <Point x="208.5" y="136.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="127.5" />
+          <Point x="199.5" y="136.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="212.3438" y="127.6543" />
+          <Text>power_6</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="203.0352" y="130.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="203.0352" y="130.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_42" zorder="38" guid="a66dd341-c4f1-41b5-b3d7-42fb4347136e" name="power_7" component="cy_pins_v2_20">
+      <Location x="177" y="139.5" />
+      <Size width="73.50781" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="186" y="144" />
+          <Point x="201" y="144" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="195" y="144" />
+          <Point x="192" y="145.5" />
+          <Point x="192" y="142.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="power_7.y_0" type="Instance Digital Input">
+          <Location x="180" y="144" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="199.5" y="139.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="199.5" y="139.5" />
+          <Point x="208.5" y="148.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="139.5" />
+          <Point x="199.5" y="148.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="212.3438" y="139.7764" />
+          <Text>power_7</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="203.0352" y="142.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="203.0352" y="142.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Wire shapeName="Shape_43" zorder="43" effectiveName="Net_10" type="Digital">
+      <Point1 x="510" y="288" />
+      <Point2 x="534" y="288" />
+    </Wire>
+    <Instance shapeName="Shape_44" zorder="45" guid="a057e91f-4c13-4162-a236-34876656d34d" name="rs485_uart" component="UART_v2_50">
+      <Location x="795" y="49.93848" />
+      <Size width="90" height="106.0615" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="804" y="72" />
+          <Size width="72" height="84" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Rectangle>
+          <Location x="804" y="60" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="135, 206, 235" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="825.5742" y="49.93848" />
+          <Text>rs485_uart</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="804" y="126" />
+          <Point x="810" y="132" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="804" y="138" />
+          <Point x="810" y="132" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="rs485_uart.clock" type="Instance Digital Input">
+          <Location x="798" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="811.7666" y="127.7764" />
+          <Text>clock</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="rs485_uart.reset" type="Instance Digital Input">
+          <Location x="798" y="144" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="806.0938" y="140.4648" />
+          <Text>reset</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="rs485_uart.rx" type="Instance Digital Input">
+          <Location x="798" y="84" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="806.3438" y="81.38672" />
+          <Text>rx</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="rs485_uart.rx_interrupt" type="Instance Digital Output">
+          <Location x="882" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="822.6641" y="115.5264" />
+          <Text>rx_interrupt</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="804" y="60" />
+          <Size width="73" height="13" />
+          <Text>UART</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_46" zorder="49" guid="27695818-6fba-449a-a1e7-b9575d98ccea" name="rs485_clock" component="cy_clock_v2_20">
+      <Location x="718.0381" y="127" />
+      <Size width="82.96191" height="17.47461" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="774" y="127" />
+          <Size width="18" height="10" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="rs485_clock.clock_out" type="Instance Digital Output">
+          <Location x="798" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="777.7652" y="133.9238" />
+          <Point x="777.7652" y="128.6333" />
+          <Point x="782.0251" y="128.6333" />
+          <Point x="782.0251" y="133.9238" />
+          <Point x="784.1551" y="133.9238" />
+          <Point x="784.1551" y="128.6333" />
+          <Point x="788.415" y="128.6333" />
+          <Point x="788.415" y="133.9238" />
+          <Point x="790.545" y="133.9238" />
+          <Point x="790.545" y="135.3667" />
+          <Point x="787.3501" y="135.3667" />
+          <Point x="787.3501" y="130.0761" />
+          <Point x="785.2201" y="130.0761" />
+          <Point x="785.2201" y="135.3667" />
+          <Point x="780.9601" y="135.3667" />
+          <Point x="780.9601" y="130.0761" />
+          <Point x="778.8302" y="130.0761" />
+          <Point x="778.8302" y="135.3667" />
+          <Point x="775.6352" y="135.3667" />
+          <Point x="775.6352" y="133.9238" />
+          <Point x="777.7652" y="133.9238" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="255, 255, 255" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="718.0381" y="127.6543" />
+          <Text>rs485_clock</Text>
+          <Expression><![CDATA[`=($is_direct) ? "MASTER_CLK" : $INSTANCE_NAME`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="734.8389" y="139.1631" />
+          <Text>MASTER_CLK / 313</Text>
+          <Expression><![CDATA[`=($is_divider) ? $source_clock_name  . " / " . $pretty_divisor : ($is_direct) ? "24 MHz" : $pretty_desired_freq`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_47" zorder="50" guid="d95f0414-4719-415b-bd03-5a5097715cb4" name="rs485_reset" component="cy_constant_v1_0">
+      <Location x="793" y="141" />
+      <Size width="10" height="27" />
+      <SubShapes>
+        <Terminal name="rs485_reset.val" type="Instance Digital Output">
+          <Location x="798" y="144" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="793" y="150" />
+          <Size width="10" height="18" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="794.9434" y="156.5879" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_48" zorder="51" guid="a94135b5-7cb2-4f2e-a906-d57268342cf8" name="rs485_rx_isr" component="cy_isr_v1_70">
+      <Location x="879" y="115" />
+      <Size width="85.24213" height="10" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="888" y="115" />
+          <Size width="18" height="10" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="rs485_rx_isr.int_signal" type="Instance Digital Input">
+          <Location x="882" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="908.3437" y="115.9385" />
+          <Text>rs485_rx_isr</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <ClosedShape>
+          <Point x="891.0062" y="123.0002" />
+          <Point x="894.9658" y="120.7694" />
+          <Point x="894.9658" y="122.0242" />
+          <Point x="898.3254" y="119.7934" />
+          <Point x="898.3254" y="121.0482" />
+          <Point x="903.005" y="117.0049" />
+          <Point x="902.985" y="117.0049" />
+          <Point x="898.9054" y="119.2357" />
+          <Point x="898.9254" y="119.2357" />
+          <Point x="898.9254" y="117.9808" />
+          <Point x="895.5657" y="120.2117" />
+          <Point x="895.5657" y="118.9568" />
+          <Point x="891.0062" y="123.0002" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 0" />
+          </Fill>
+        </ClosedShape>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_49" zorder="52" guid="3c572d1a-d160-4bea-9311-612a28aca791" name="analog_sar_adc" component="ADC_SAR_v3_0">
+      <Location x="207" y="362.077" />
+      <Size width="90" height="101.5831" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="216" y="384" />
+          <Size width="72" height="72" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="216" y="396" />
+          <Point x="234" y="396" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_sar_adc.vplus" type="Instance Analog InOut">
+          <Location x="210" y="396" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_sar_adc.eoc" type="Instance Digital Output">
+          <Location x="294" y="444" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="270.08" y="441.8242" />
+          <Text>eoc</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="216" y="372" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 128" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="228.692" y="373.966" />
+          <Text>ADC_SAR</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <ClosedShape>
+          <Point x="240" y="390" />
+          <Point x="276" y="390" />
+          <Point x="276" y="414" />
+          <Point x="240" y="414" />
+          <Point x="228" y="402" />
+          <Point x="240" y="390" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="0, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Line>
+          <Point x="237" y="408" />
+          <Point x="243" y="408" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="237" y="396" />
+          <Point x="243" y="396" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="240" y="393" />
+          <Point x="240" y="399" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="213.4821" y="362.077" />
+          <Text>analog_sar_adc</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="248.1142" y="398.0118" />
+          <Text>SAR</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Annotation>
+          <Location x="267.0672" y="457.7383" />
+          <Text>12-bit</Text>
+          <Expression>`=$ADC_Resolution`-bit</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="224" y="408" />
+          <Point x="224" y="411" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="224" y="408" />
+          <Point x="234" y="408" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="224" y="408" />
+          <Point x="224" y="420" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Flat" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="235.7245" y="415.9818" />
+          <Text>vref_out</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Line>
+          <Point x="224" y="420" />
+          <Point x="230" y="420" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Round" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="228" y="422" />
+          <Point x="232" y="422" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="228" y="418" />
+          <Point x="232" y="418" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="232" y="418" />
+          <Point x="232" y="422" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="228" y="418" />
+          <Point x="228" y="422" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_50" zorder="53" guid="654bd125-cec2-4d41-8bc3-ceb5f70eda4b" name="analog_sar_mux" component="AMux_v1_80">
+      <Location x="132.5977" y="368.0605" />
+      <Size width="80.40234" height="45.93945" />
+      <SubShapes>
+        <Annotation>
+          <Location x="132.5977" y="368.0605" />
+          <Text>analog_sar_mux</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Terminal name="analog_sar_mux.AinTerm0" type="Instance Analog InOut">
+          <Location x="180" y="390" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_sar_mux.AinTerm1" type="Instance Analog InOut">
+          <Location x="180" y="402" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_sar_mux.AoutTerm" type="Instance Analog InOut">
+          <Location x="210" y="396" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="186" y="378" />
+          <Point x="204" y="390" />
+          <Point x="204" y="402" />
+          <Point x="186" y="414" />
+          <Point x="186" y="378" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="189.9727" y="398.5508" />
+          <Text>1</Text>
+          <Expression>`=$Channels-1`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="189.4453" y="387.5508" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_51" zorder="54" guid="95d9e21c-d407-4170-86fa-5b860d98555f" name="analog_sar_signal_0" component="cy_pins_v2_20">
+      <Location x="53.61327" y="385.5" />
+      <Size width="129.3867" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="160.5" y="390" />
+          <Point x="174" y="390" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_sar_signal_0.analog_0" type="Instance Analog InOut">
+          <Location x="180" y="390" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="151.5" y="385.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="151.5" y="385.5" />
+          <Point x="160.5" y="394.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="160.5" y="385.5" />
+          <Point x="151.5" y="394.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="53.61327" y="385.6543" />
+          <Text>analog_sar_signal_0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="155.0352" y="388.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="155.0352" y="388.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_52" zorder="55" guid="5bf40c48-7d66-4e29-b15c-35d34c2950b4" name="analog_sar_signal_1" component="cy_pins_v2_20">
+      <Location x="53.61327" y="397.5" />
+      <Size width="129.3867" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="160.5" y="402" />
+          <Point x="174" y="402" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_sar_signal_1.analog_0" type="Instance Analog InOut">
+          <Location x="180" y="402" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="151.5" y="397.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="151.5" y="397.5" />
+          <Point x="160.5" y="406.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="160.5" y="397.5" />
+          <Point x="151.5" y="406.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="53.61327" y="397.6543" />
+          <Text>analog_sar_signal_1</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="155.0352" y="400.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="155.0352" y="400.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_340" zorder="7" guid="3027f149-aad0-4af1-8803-4048cde7e4e9" name="generic_uart_reset" component="cy_constant_v1_0">
+      <Location x="505" y="129" />
+      <Size width="10" height="27" />
+      <SubShapes>
+        <Terminal name="generic_uart_reset.val" type="Instance Digital Output">
+          <Location x="510" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="505" y="138" />
+          <Size width="10" height="18" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="506.9434" y="144.5879" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_341" zorder="8" guid="a4d4c906-6c78-4eb7-8a45-6913e864221b" name="generic_uart_rx_isr" component="cy_isr_v1_70">
+      <Location x="609" y="103" />
+      <Size width="116.746" height="10.31835" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="618" y="103" />
+          <Size width="18" height="10" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="generic_uart_rx_isr.int_signal" type="Instance Digital Input">
+          <Location x="612" y="108" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="638.0165" y="104.0605" />
+          <Text>generic_uart_rx_isr</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <ClosedShape>
+          <Point x="621.0062" y="111.0002" />
+          <Point x="624.9658" y="108.7694" />
+          <Point x="624.9658" y="110.0242" />
+          <Point x="628.3254" y="107.7934" />
+          <Point x="628.3254" y="109.0482" />
+          <Point x="633.005" y="105.0049" />
+          <Point x="632.985" y="105.0049" />
+          <Point x="628.9054" y="107.2357" />
+          <Point x="628.9254" y="107.2357" />
+          <Point x="628.9254" y="105.9808" />
+          <Point x="625.5657" y="108.2117" />
+          <Point x="625.5657" y="106.9568" />
+          <Point x="621.0062" y="111.0002" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 0" />
+          </Fill>
+        </ClosedShape>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_419" zorder="25" guid="2ebb8822-0acc-4b82-a787-e2b6baf678a4" name="analog_delsig_signal_0" component="cy_pins_v2_20">
+      <Location x="40.88866" y="259.5" />
+      <Size width="142.1113" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="160.5" y="264" />
+          <Point x="174" y="264" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_delsig_signal_0.analog_0" type="Instance Analog InOut">
+          <Location x="180" y="264" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="151.5" y="259.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="40.88866" y="259.6543" />
+          <Text>analog_delsig_signal_0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="152.7441" y="262.2617" />
+          <Size width="6.386719" height="3.708984" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="152.7441" y="262.2617" />
+          <Text>0[0]</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_420" zorder="26" guid="db5e73d6-1a63-4392-9530-cb450b958232" name="analog_delsig_adc" component="ADC_DelSig_v3_20">
+      <Location x="202.3773" y="230.1974" />
+      <Size width="94.62265" height="107.4048" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="216" y="252" />
+          <Size width="72" height="78" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="216" y="270" />
+          <Point x="240" y="270" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_delsig_adc.vplus" type="Instance Analog InOut">
+          <Location x="210" y="270" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_delsig_adc.eoc" type="Instance Digital Output">
+          <Location x="294" y="312" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="269.9874" y="309.6444" />
+          <Text>eoc</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="216" y="240" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 128" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="222.6334" y="241.9896" />
+          <Text>ADC_DelSig</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Line>
+          <Point x="222" y="282" />
+          <Point x="222" y="290" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="218" y="289.7662" />
+          <Point x="222.6304" y="296" />
+          <Point x="227.2608" y="289.7662" />
+          <Point x="218" y="289.7662" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="225, 223, 223" />
+          </Fill>
+        </ClosedShape>
+        <Line>
+          <Point x="222" y="282" />
+          <Point x="242" y="282" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="247.0289" y="262.5174" />
+          <Point x="283.1158" y="262.5174" />
+          <Point x="283.1158" y="289.4478" />
+          <Point x="247.0289" y="289.4478" />
+          <Point x="235" y="275.9826" />
+          <Point x="247.0289" y="262.5174" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="0, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Line>
+          <Point x="243" y="282" />
+          <Point x="249" y="282" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="243" y="270" />
+          <Point x="249" y="270" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="246" y="267" />
+          <Point x="246" y="273" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="267.5704" y="331.6803" />
+          <Text>20-bit</Text>
+          <Expression>`=$ADC_Resolution`-bit</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Annotation>
+          <Location x="202.3773" y="230.1974" />
+          <Text>analog_delsig_adc</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="251.617" y="267.3362" />
+          <Text>DS</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Symbol, 24pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <ClosedShape>
+          <Point x="232.888" y="275.7541" />
+          <Point x="224.7728" y="287.1313" />
+          <Point x="224.7728" y="264.377" />
+          <Point x="232.888" y="275.7541" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="0, 255, 255" />
+          </Fill>
+        </ClosedShape>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_423" zorder="28" guid="b2b84c19-f148-4137-aef6-cebf445aaa45" name="analog_delsig_signal_1" component="cy_pins_v2_20">
+      <Location x="40.88866" y="271.5" />
+      <Size width="142.1113" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="160.5" y="276" />
+          <Point x="174" y="276" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="analog_delsig_signal_1.analog_0" type="Instance Analog InOut">
+          <Location x="180" y="276" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="151.5" y="271.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="151.5" y="271.5" />
+          <Point x="160.5" y="280.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="160.5" y="271.5" />
+          <Point x="151.5" y="280.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="40.88866" y="271.6543" />
+          <Text>analog_delsig_signal_1</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="155.0352" y="274.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="155.0352" y="274.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_501" zorder="39" guid="22863ebe-a37b-476f-b252-6e49a8c00b12" name="i2c_sda" component="cy_pins_v2_20">
+      <Location x="615" y="259.5" />
+      <Size width="69.33301" height="9.006836" />
+      <SubShapes>
+        <Line>
+          <Point x="624" y="264" />
+          <Point x="637.5" y="264" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="633" y="264" />
+          <Point x="630" y="265.5" />
+          <Point x="630" y="262.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <ClosedShape>
+          <Point x="627" y="264" />
+          <Point x="630" y="265.5" />
+          <Point x="630" y="262.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="i2c_sda.io_0" type="Instance Digital InOut">
+          <Location x="618" y="264" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="637.5" y="259.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="637.5" y="259.5" />
+          <Point x="646.5" y="268.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="646.5" y="259.5" />
+          <Point x="637.5" y="268.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="650.3438" y="259.6543" />
+          <Text>i2c_sda</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="641.0352" y="262.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="641.0352" y="262.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_502" zorder="40" guid="02f2cf2c-2c7a-49df-9246-7a3435c21be3" name="i2c_scl" component="cy_pins_v2_20">
+      <Location x="615" y="271.5" />
+      <Size width="65.48047" height="9.006836" />
+      <SubShapes>
+        <Line>
+          <Point x="624" y="276" />
+          <Point x="637.5" y="276" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="0, 128, 0" />
+          </Outline>
+        </Line>
+        <ClosedShape>
+          <Point x="633" y="276" />
+          <Point x="630" y="277.5" />
+          <Point x="630" y="274.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <ClosedShape>
+          <Point x="627" y="276" />
+          <Point x="630" y="277.5" />
+          <Point x="630" y="274.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Terminal name="i2c_scl.io_0" type="Instance Digital InOut">
+          <Location x="618" y="276" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="637.5" y="271.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="637.5" y="271.5" />
+          <Point x="646.5" y="280.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="646.5" y="271.5" />
+          <Point x="637.5" y="280.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="650.3438" y="271.6543" />
+          <Text>i2c_scl</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Rectangle>
+          <Location x="641.0352" y="274.2617" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="641.0352" y="274.2617" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_503" zorder="41" guid="d63e3c31-06bb-4b92-9fb2-102854725f29" name="i2c_clock" component="cy_clock_v2_20">
+      <Location x="442.5723" y="283" />
+      <Size width="70.42773" height="16.60449" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="486" y="283" />
+          <Size width="18" height="10" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="i2c_clock.clock_out" type="Instance Digital Output">
+          <Location x="510" y="288" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="489.7652" y="289.9238" />
+          <Point x="489.7652" y="284.6332" />
+          <Point x="494.0251" y="284.6332" />
+          <Point x="494.0251" y="289.9238" />
+          <Point x="496.1551" y="289.9238" />
+          <Point x="496.1551" y="284.6332" />
+          <Point x="500.4151" y="284.6332" />
+          <Point x="500.4151" y="289.9238" />
+          <Point x="502.545" y="289.9238" />
+          <Point x="502.545" y="291.3667" />
+          <Point x="499.3501" y="291.3667" />
+          <Point x="499.3501" y="286.0761" />
+          <Point x="497.2201" y="286.0761" />
+          <Point x="497.2201" y="291.3667" />
+          <Point x="492.9602" y="291.3667" />
+          <Point x="492.9602" y="286.0761" />
+          <Point x="490.8302" y="286.0761" />
+          <Point x="490.8302" y="291.3667" />
+          <Point x="487.6352" y="291.3667" />
+          <Point x="487.6352" y="289.9238" />
+          <Point x="489.7652" y="289.9238" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="255, 255, 255" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="442.5723" y="283.6543" />
+          <Text>i2c_clock</Text>
+          <Expression><![CDATA[`=($is_direct) ? "Unknown Source Clock" : $INSTANCE_NAME`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="480.6592" y="295.1631" />
+          <Text>1.6 MHz</Text>
+          <Expression><![CDATA[`=($is_divider) ? $source_clock_name  . " / " . $pretty_divisor : ($is_direct) ? "" : $pretty_desired_freq`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_506" zorder="42" guid="72463f96-822d-40d2-aad2-bc2cd379f7ff" name="i2c" component="I2C_v3_50">
+      <Location x="531" y="230.0475" />
+      <Size width="90" height="89.29625" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="540" y="252" />
+          <Size width="72" height="60" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Square" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="224, 224, 224" />
+          </Fill>
+        </Rectangle>
+        <Rectangle>
+          <Location x="540" y="240" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Square" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="135, 206, 235" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="568.7729" y="242.2657" />
+          <Text>I2C</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Terminal name="i2c.sda" type="Instance Digital InOut">
+          <Location x="618" y="264" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="594.0754" y="259.571" />
+          <Text>sda</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Terminal name="i2c.scl" type="Instance Digital InOut">
+          <Location x="618" y="276" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="598.7087" y="271.7986" />
+          <Text>scl</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="599.6769" y="230.0475" />
+          <Text>i2c</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Terminal name="i2c.clock" type="Instance Digital Input">
+          <Location x="534" y="288" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="547.8022" y="283.7763" />
+          <Text>clock</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="i2c.reset" type="Instance Digital Input">
+          <Location x="534" y="300" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="542.1294" y="296.4648" />
+          <Text>reset</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Line>
+          <Point x="540" y="282" />
+          <Point x="546" y="288" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="540" y="294" />
+          <Point x="546" y="288" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="588.2473" y="313.5195" />
+          <Text>Master</Text>
+          <Expression><![CDATA[`=($I2C_Mode == MultiMaster_Slave_revA) ? "Multi-Master-Slave" : 
+($I2C_Mode == MultiMaster_revA) ? "Multi-Master" : 
+($I2C_Mode == Master_revA) ? "Master" : "Slave"`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_527" zorder="5" guid="e495a607-ca75-477b-af61-a259a59dc0c2" name="generic_uart" component="UART_v2_50">
+      <Location x="525" y="38.06055" />
+      <Size width="90" height="105.9395" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="534" y="60" />
+          <Size width="72" height="84" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Rectangle>
+          <Location x="534" y="48" />
+          <Size width="72" height="12" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="135, 206, 235" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="547.1709" y="38.06055" />
+          <Text>generic_uart</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="534" y="114" />
+          <Point x="540" y="120" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="534" y="126" />
+          <Point x="540" y="120" />
+          <Outline dashStyle="Solid" startCap="Round" endCap="Round" lineJoin="Round" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="generic_uart.clock" type="Instance Digital Input">
+          <Location x="528" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="541.7666" y="115.7764" />
+          <Text>clock</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="generic_uart.reset" type="Instance Digital Input">
+          <Location x="528" y="132" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="536.0938" y="128.4648" />
+          <Text>reset</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="generic_uart.rx" type="Instance Digital Input">
+          <Location x="528" y="72" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="536.3438" y="69.38672" />
+          <Text>rx</Text>
+          <TextAlignment value="MiddleLeft" />
+        </Annotation>
+        <Terminal name="generic_uart.rx_interrupt" type="Instance Digital Output">
+          <Location x="612" y="108" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="552.6641" y="103.5264" />
+          <Text>rx_interrupt</Text>
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="534" y="48" />
+          <Size width="73" height="13" />
+          <Text>UART</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_535" zorder="27" guid="7b2b37cf-509f-4ee4-86bd-9e0a6f44278d" name="analog_delsig_mux" component="AMux_v1_80">
+      <Location x="119.873" y="242.0605" />
+      <Size width="93.12696" height="45.93945" />
+      <SubShapes>
+        <Annotation>
+          <Location x="119.873" y="242.0605" />
+          <Text>analog_delsig_mux</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Terminal name="analog_delsig_mux.AinTerm0" type="Instance Analog InOut">
+          <Location x="180" y="264" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_delsig_mux.AinTerm1" type="Instance Analog InOut">
+          <Location x="180" y="276" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="analog_delsig_mux.AoutTerm" type="Instance Analog InOut">
+          <Location x="210" y="270" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="186" y="252" />
+          <Point x="204" y="264" />
+          <Point x="204" y="276" />
+          <Point x="186" y="288" />
+          <Point x="186" y="252" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="189.9727" y="272.5508" />
+          <Text>1</Text>
+          <Expression>`=$Channels-1`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="189.4453" y="261.5508" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 8pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_660" zorder="6" guid="6060420e-cb81-4cd8-b4a7-117c77d046e6" name="generic_uart_clock" component="cy_clock_v2_20">
+      <Location x="410.207" y="115" />
+      <Size width="114.793" height="17.47461" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="498" y="115" />
+          <Size width="18" height="10" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Terminal name="generic_uart_clock.clock_out" type="Instance Digital Output">
+          <Location x="522" y="120" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="501.7652" y="121.9238" />
+          <Point x="501.7652" y="116.6333" />
+          <Point x="506.0251" y="116.6333" />
+          <Point x="506.0251" y="121.9238" />
+          <Point x="508.1551" y="121.9238" />
+          <Point x="508.1551" y="116.6333" />
+          <Point x="512.415" y="116.6333" />
+          <Point x="512.415" y="121.9238" />
+          <Point x="514.545" y="121.9238" />
+          <Point x="514.545" y="123.3667" />
+          <Point x="511.3501" y="123.3667" />
+          <Point x="511.3501" y="118.0761" />
+          <Point x="509.2201" y="118.0761" />
+          <Point x="509.2201" y="123.3667" />
+          <Point x="504.9602" y="123.3667" />
+          <Point x="504.9602" y="118.0761" />
+          <Point x="502.8302" y="118.0761" />
+          <Point x="502.8302" y="123.3667" />
+          <Point x="499.6352" y="123.3667" />
+          <Point x="499.6352" y="121.9238" />
+          <Point x="501.7652" y="121.9238" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="0, 128, 0" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="410.207" y="115.7764" />
+          <Text>generic_uart_clock</Text>
+          <Expression><![CDATA[`=($is_direct) ? "MASTER_CLK" : $INSTANCE_NAME`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Annotation>
+          <Location x="458.8389" y="127.1631" />
+          <Text>MASTER_CLK / 313</Text>
+          <Expression><![CDATA[`=($is_divider) ? $source_clock_name  . " / " . $pretty_divisor : ($is_direct) ? "24 MHz" : $pretty_desired_freq`]]></Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 6pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_674" zorder="46" guid="42c850e2-73b3-497a-8f3e-e0f79556de55" name="rs485_pos" component="cy_pins_v2_20">
+      <Location x="652.9619" y="73.5" />
+      <Size width="82.03809" height="9.426758" />
+      <SubShapes>
+        <Line>
+          <Point x="712.5" y="78" />
+          <Point x="726" y="78" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="rs485_pos.analog_0" type="Instance Analog InOut">
+          <Location x="732" y="78" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="703.5" y="73.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="703.5" y="73.5" />
+          <Point x="712.5" y="82.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="712.5" y="73.5" />
+          <Point x="703.5" y="82.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="652.9619" y="73.6543" />
+          <Text>rs485_pos</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="707.0352" y="76.26172" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="707.0352" y="76.26172" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_676" zorder="47" guid="309e2d6d-87ff-4911-a102-9b9c8860a4aa" name="rs485_comparator" component="Comp_v2_0">
+      <Location x="710.1361" y="38.07536" />
+      <Size width="90.86389" height="81.92464" />
+      <SubShapes>
+        <Rectangle>
+          <Location x="738" y="60" />
+          <Size width="54" height="60" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="220, 220, 220" />
+          </Fill>
+        </Rectangle>
+        <Rectangle>
+          <Location x="738" y="48" />
+          <Size width="54" height="12" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="1">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 128" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="751.3725" y="49.98322" />
+          <Text>Comp</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Terminal name="rs485_comparator.Vplus" type="Instance Analog InOut">
+          <Location x="732" y="78" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Annotation>
+          <Location x="710.1361" y="38.07536" />
+          <Text>rs485_comparator</Text>
+          <Expression>`=$INSTANCE_NAME`</Expression>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="TopRight" />
+        </Annotation>
+        <Line>
+          <Point x="738" y="78" />
+          <Point x="750" y="78" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="738" y="90" />
+          <Point x="750" y="90" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Terminal name="rs485_comparator.CmpOut" type="Instance Digital Output">
+          <Location x="798" y="84" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Terminal name="rs485_comparator.Vminus" type="Instance Analog InOut">
+          <Location x="732" y="90" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <ClosedShape>
+          <Point x="750" y="102" />
+          <Point x="780" y="84" />
+          <Point x="750" y="66" />
+          <Point x="750" y="102" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 0" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="0, 255, 255" />
+          </Fill>
+        </ClosedShape>
+        <Annotation>
+          <Location x="751.0323" y="74.46528" />
+          <Text>+</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Symbol, 14pt, style=Bold" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Annotation>
+          <Location x="751.6315" y="89.77903" />
+          <Text>-</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Symbol, 14pt, style=Bold" />
+          <TextAlignment value="TopLeft" />
+        </Annotation>
+        <Line>
+          <Point x="786" y="84" />
+          <Point x="792" y="84" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="780" y="84" />
+          <Point x="786" y="84" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.5">
+            <SolidBrush color="0, 0, 128" />
+          </Outline>
+        </Line>
+      </SubShapes>
+    </Instance>
+    <Instance shapeName="Shape_692" zorder="48" guid="bd7ceefa-d5f6-4bde-a1a0-ac955fde448d" name="rs485_neg" component="cy_pins_v2_20">
+      <Location x="652.3857" y="85.5" />
+      <Size width="82.61426" height="9.53418" />
+      <SubShapes>
+        <Line>
+          <Point x="712.5" y="90" />
+          <Point x="726" y="90" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="192, 64, 0" />
+          </Outline>
+        </Line>
+        <Terminal name="rs485_neg.analog_0" type="Instance Analog InOut">
+          <Location x="732" y="90" />
+          <ShowWireGuide value="true" />
+        </Terminal>
+        <Rectangle>
+          <Location x="703.5" y="85.5" />
+          <Size width="9" height="9" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Line>
+          <Point x="703.5" y="85.5" />
+          <Point x="712.5" y="94.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="712.5" y="85.5" />
+          <Point x="703.5" y="94.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Annotation>
+          <Location x="652.3857" y="85.6543" />
+          <Text>rs485_neg</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 10pt" />
+          <TextAlignment value="MiddleRight" />
+        </Annotation>
+        <Rectangle>
+          <Location x="707.0352" y="88.26172" />
+          <Size width="1.865234" height="2.960938" />
+          <NoOutline />
+          <Fill>
+            <SolidBrush color="255, 255, 255" />
+          </Fill>
+        </Rectangle>
+        <Annotation>
+          <Location x="707.0352" y="88.26172" />
+          <Text>0</Text>
+          <Fill>
+            <SolidBrush color="0, 0, 0" />
+          </Fill>
+          <Font value="Microsoft Sans Serif, 4pt" />
+          <TextAlignment value="MiddleCenter" />
+        </Annotation>
+      </SubShapes>
+    </Instance>
+  </Page>
+</Document>

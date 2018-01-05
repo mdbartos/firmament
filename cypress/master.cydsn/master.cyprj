@@ -1470,7 +1470,7 @@
 <WriteAppVersionLastSavedWith v="4.1.0.3210" />
 <WriteAppMarketingVersionLastSavedWith v=" 4.1 Update 1" />
 <project_id v="f9de3aa6-b990-4fda-a363-885b238a213b" />
-<GenerateDescriptionFiles v="False" />
+<GenerateDescriptionFiles v="True" />
 </CyGuid_49cfd574-032a-4a64-b7be-d4eeeaf25e43>
 </CyGuid_60697ce6-dce2-4816-8680-4de0635742eb>
 <top_block v="TopDesign" />
