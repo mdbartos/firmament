@@ -5,6 +5,7 @@ generic_uart:
         - "generic_uart_mux_controller"
         - "generic_uart_rx_isr"
         - "generic_uart_reset"
+        - "generic_uart_clock"
     peripheral:
         - "generic_uart_rx_0"
         - "generic_uart_rx_1"
