@@ -25,6 +25,7 @@ paths = {
         'workspace' : '../master.cywrk',
         'cyprjmgr' : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe',
         'dwr' : '../master.cydsn/master.cydwr',
+        'cysem' : '../master.cydsn/TopDesign/TopDesign.cysch.cysem',
         'params' : '../master.cydsn/params',
         'globals' : '../master.cydsn/peripheral_globals.h',
         'instances' : '../master.cydsn/peripheral_instances.h',
@@ -46,6 +47,7 @@ class CypressBuilder():
         self.protocols = {}
         self.aliases = {}
         self.master = {}
+        self.guid = {}
 
         # Read config info
         self._read_config()
@@ -62,6 +64,9 @@ class CypressBuilder():
 
         # Get all enabled components
         self.enabled_components = self.enabled_global_components + self.enabled_private_components
+
+        # Map GUIDs
+        self._map_guids()
 
         # Generate params for param file
         self._generate_params()
@@ -354,6 +359,21 @@ class CypressBuilder():
         body = '\n'.join(body)
         with open(paths['calls'], 'w') as calls_file:
             calls_file.write(body)
+
+    def _map_guids(self):
+        with open(self.paths['cysem']) as cysem_file:
+            x = ''.join(cysem_file.readlines())
+        # Find first tag
+        x = x[x.find('<'):]
+        # Parse XML
+        s = BeautifulSoup(x, 'xml')
+        inst = s.find('Instance')
+        for iter in range(10000):
+            if inst:
+                self.guid.update({inst['name'] : inst['guid']})
+                inst = inst.find_next('Instance')
+            else:
+                break
 
     def modify_dwr(self):
         # Get desired pins from config file
