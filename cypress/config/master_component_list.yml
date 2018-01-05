@@ -41,6 +41,7 @@ analog_sar:
         - "analog_sar_signal_1"
 power:
     base:
+        - "power_signal"
         - "power_demux"
         - "power_demux_controller"
     peripheral:
