@@ -431,6 +431,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="457.5" y="49.5" />
+          <Point x="466.5" y="58.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="466.5" y="49.5" />
+          <Point x="457.5" y="58.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="371.7471" y="49.6543" />
           <Text>generic_uart_rx_0</Text>
@@ -441,16 +455,16 @@
           <TextAlignment value="MiddleRight" />
         </Annotation>
         <Rectangle>
-          <Location x="458" y="52.26172" />
-          <Size width="8" height="3.708984" />
+          <Location x="461.0352" y="52.26172" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="457.8633" y="52.26172" />
-          <Text>12[3]</Text>
+          <Location x="461.0352" y="52.26172" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -495,6 +509,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="457.5" y="61.5" />
+          <Point x="466.5" y="70.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="466.5" y="61.5" />
+          <Point x="457.5" y="70.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="371.7471" y="61.6543" />
           <Text>generic_uart_rx_1</Text>
@@ -505,16 +533,16 @@
           <TextAlignment value="MiddleRight" />
         </Annotation>
         <Rectangle>
-          <Location x="458" y="64.26172" />
-          <Size width="8" height="3.708984" />
+          <Location x="461.0352" y="64.26172" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="457.8633" y="64.26172" />
-          <Text>12[7]</Text>
+          <Location x="461.0352" y="64.26172" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -723,6 +751,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="199.5" y="55.5" />
+          <Point x="208.5" y="64.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="55.5" />
+          <Point x="199.5" y="64.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="212.3438" y="55.6543" />
           <Text>power_0</Text>
@@ -733,16 +775,16 @@
           <TextAlignment value="MiddleLeft" />
         </Annotation>
         <Rectangle>
-          <Location x="200" y="58.26172" />
-          <Size width="8" height="3.708984" />
+          <Location x="203.0352" y="58.26172" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="199.8633" y="58.26172" />
-          <Text>12[4]</Text>
+          <Location x="203.0352" y="58.26172" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -787,6 +829,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="199.5" y="67.5" />
+          <Point x="208.5" y="76.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="67.5" />
+          <Point x="199.5" y="76.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="212.3438" y="67.6543" />
           <Text>power_1</Text>
@@ -797,16 +853,16 @@
           <TextAlignment value="MiddleLeft" />
         </Annotation>
         <Rectangle>
-          <Location x="200" y="70.26172" />
-          <Size width="8" height="3.708984" />
+          <Location x="203.0352" y="70.26172" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="199.8633" y="70.26172" />
-          <Text>12[6]</Text>
+          <Location x="203.0352" y="70.26172" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -851,6 +907,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="199.5" y="79.5" />
+          <Point x="208.5" y="88.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="208.5" y="79.5" />
+          <Point x="199.5" y="88.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="212.3438" y="79.6543" />
           <Text>power_2</Text>
@@ -861,16 +931,16 @@
           <TextAlignment value="MiddleLeft" />
         </Annotation>
         <Rectangle>
-          <Location x="200.7402" y="82.26172" />
-          <Size width="6.390625" height="3.708984" />
+          <Location x="203.0352" y="82.26172" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="200.7402" y="82.26172" />
-          <Text>3[0]</Text>
+          <Location x="203.0352" y="82.26172" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -2001,6 +2071,20 @@
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
+        <Line>
+          <Point x="151.5" y="259.5" />
+          <Point x="160.5" y="268.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
+        <Line>
+          <Point x="160.5" y="259.5" />
+          <Point x="151.5" y="268.5" />
+          <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0.25">
+            <SolidBrush color="128, 128, 128" />
+          </Outline>
+        </Line>
         <Annotation>
           <Location x="40.88866" y="259.6543" />
           <Text>analog_delsig_signal_0</Text>
@@ -2011,16 +2095,16 @@
           <TextAlignment value="MiddleRight" />
         </Annotation>
         <Rectangle>
-          <Location x="152.7441" y="262.2617" />
-          <Size width="6.386719" height="3.708984" />
+          <Location x="155.0352" y="262.2617" />
+          <Size width="1.865234" height="2.960938" />
           <NoOutline />
           <Fill>
             <SolidBrush color="255, 255, 255" />
           </Fill>
         </Rectangle>
         <Annotation>
-          <Location x="152.7441" y="262.2617" />
-          <Text>0[0]</Text>
+          <Location x="155.0352" y="262.2617" />
+          <Text>0</Text>
           <Fill>
             <SolidBrush color="0, 0, 0" />
           </Fill>
@@ -2804,10 +2888,10 @@
           <Point x="499.6352" y="121.9238" />
           <Point x="501.7652" y="121.9238" />
           <Outline dashStyle="Solid" startCap="Flat" endCap="Flat" lineJoin="Miter" weight="0">
-            <SolidBrush color="0, 0, 0" />
+            <SolidBrush color="255, 255, 255" />
           </Outline>
           <Fill>
-            <SolidBrush color="0, 128, 0" />
+            <SolidBrush color="255, 255, 255" />
           </Fill>
         </ClosedShape>
         <Annotation>
