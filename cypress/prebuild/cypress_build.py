@@ -376,6 +376,7 @@ class CypressBuilder():
                 break
 
     def modify_dwr(self):
+        # TODO: Note that this currently doesn't handle external clocks
         # Get desired pins from config file
         desired_pins = {}
         for component, subcomponents in self.private_components.items():
@@ -395,33 +396,26 @@ class CypressBuilder():
         # TODO: This does not capture internal pins
         pins = {}
         pin_group = s.find('Group', key='Pin')
-        pin_ids = pin_group.find_all('Data')
-        # TODO: This does not account for duplicately-named pins
-        for pin in pin_ids:
-            pins[pin['value']] = pin['key']
+        pin_group.clear()
+        for pin in desired_pins:
+            guid = self.guid[pin]
+            new_pin = s.new_tag('Data', key=guid, value=pin)
+            pin_group.append(new_pin)
         # Write ports
         pin_ports = s.find('Group', key='Pin2')
-        unassigned = pin_ports.find('Group', key='UnAssigned Pins')
-        for pin_name, pin_id in pins.items():
-            assigned_pin = pin_ports.find('Group', key=pin_id)
-            unassigned_pin = unassigned.find('Group', key=pin_id)
-            if pin_name in desired_pins:
-                pin_port = desired_pins[pin_name]
-                if unassigned_pin:
-                    unassigned_pin.decompose()
-                    newgroup = s.new_tag('Group', key=pin_id)
-                    unassigned.insert_before(newgroup)
-                    new_innergroup = s.new_tag('Group', key="0")
-                    newgroup.append(new_innergroup)
-                    newdata = s.new_tag('Data', key='Port Format', value=pin_port)
-                    new_innergroup.append(newdata)
-                elif assigned_pin:
-                    existing_entry = assigned_pin.find('Data')
-                    existing_entry['value'] = pin_port
-            # Remove pin if it wasn't specified in config
-            else:
-                extraneous_entry = pin_group.find('Data', key=pin_id)
-                extraneous_entry.decompose()
+        pin_ports.clear()
+        for pin_name, pin_port in desired_pins.items():
+            guid = self.guid[pin]
+            new_group = s.new_tag('Group', key=guid)
+            pin_ports.append(new_group)
+            new_innergroup = s.new_tag('Group', key="0")
+            new_group.append(new_innergroup)
+            new_data = s.new_tag('Data', key='Port Format', value=pin_port)
+            new_innergroup.append(new_data)
+        new_unassigned = s.new_tag('Group', key="UnAssigned Pins")
+        pin_ports.append(new_unassigned)
+        new_unlocked = s.new_tag('Group', key="Unlocked Pins")
+        pin_ports.append(new_unlocked)
         # Write design wide resources file
         with open(paths['dwr'], 'w') as dwr_file:
             dwr_file.write(s.prettify())
