@@ -1,4 +1,4 @@
 # TODO: Fix bad relative paths
 "urn:maxbotix:mb7383" : "../../peripherals/yaml/maxbotix_mb7383.yml"
 "urn:decagon:gs3" : "../../peripherals/yaml/decagon_gs3.yml"
-"urn:battery_internal" : "../../peripherals/yaml/config/battery_internal.yml"
+"urn:battery_internal" : "../../peripherals/yaml/battery_internal.yml"

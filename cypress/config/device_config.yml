@@ -1,10 +1,19 @@
 external:
-    - identifier : "urn:maxbotix:mb7383" 
+    - identifier : "urn:maxbotix:mb7383"
+      communication_protocol : "ttl"
+      pins:
+          power : '12,6'
+          generic_uart_rx : '12,7'
+    - identifier : "urn:maxbotix:mb7383"
       communication_protocol : "ttl"
       pins:
           power : '12,4'
           generic_uart_rx : '12,3'
-    - identifier : "urn:decagon:gs3" 
+      overrides :
+          dynamic :
+              label :
+                  - "maxbotix_2_depth"
+    - identifier : "urn:decagon:gs3"
       communication_protocol : "ttl"
       pins:
           power : '3,0'

@@ -13,7 +13,7 @@ pinout:
 
 # Communications
 default_communication_protocol : "ttl"
-supported_communication_protocols:
+firmware:
     ttl:
         static:
             data_bits : 8

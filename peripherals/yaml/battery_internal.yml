@@ -13,7 +13,7 @@ output_variables:
 
 # Communications
 default_communication_protocol : "analog_delsig"
-supported_communication_protocols:
+firmware:
     analog_sar:
         dynamic :
             analog_convert_volts : 1

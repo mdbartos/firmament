@@ -1,4 +1,5 @@
 import os
+import collections
 import subprocess
 import itertools
 import yaml
@@ -106,8 +107,10 @@ class CypressBuilder():
             # Load full sensor config file
             with open(sensor_path, 'r') as stream:
                 self.docs[device_id].update(yaml.load(stream))
-            protocol_info = self.docs[device_id]['supported_communication_protocols'][protocol]
-            self.instances[instance_name] = protocol_info
+            # Get firmware info for specified protocol
+            protocol_info = self.docs[device_id]['firmware'][protocol]
+            self.instances.update({instance_name : protocol_info})
+            # Get device instance metadata
             self.instances[instance_name]['meta'] = {}
             self.instances[instance_name]['meta'].update({'instance_number' :
                                                           instance_number})
@@ -118,21 +121,36 @@ class CypressBuilder():
                                                           instance_alias})
             self.instances[instance_name]['meta'].update({'protocol' :
                                                            protocol})
+            # Process overrides
+            if 'overrides' in device:
+                for override_key, override_value in device['overrides'].items():
+                    self._nested_update(self.instances[instance_name],
+                                        {override_key : override_value})
             components = protocol_info['components']
             component_info = {}
             for component in components:
                 count = private_component_list.count(component)
                 port = device['pins'][component]
-                component_info.update({component : {'count' : count,
+                component_info.update({component : {'component_instance' : count,
                                                     'port' : port}})
             private_component_list.extend(components)
+            self.instances[instance_name].update({'components' : component_info})
             self.private_components.update({instance_name : component_info})
 
         self.enabled_private_components = []
         for component_dict in self.private_components.values():
-            components = ['{0}_{1}'.format(k, v['count']) for k, v in
+            components = ['{0}_{1}'.format(k, v['component_instance']) for k, v in
                         component_dict.items()]
             self.enabled_private_components.extend(components)
+
+    def _nested_update(self, d, u):
+        # Based on: https://stackoverflow.com/questions/3232943
+        for k, v in u.items():
+            if isinstance(v, collections.Mapping):
+                d[k] = self._nested_update(d.get(k, {}), v)
+            else:
+                d[k] = v
+        return d
 
     def _generate_global_components(self):
         # Determine global components needed
@@ -206,7 +224,7 @@ class CypressBuilder():
             # Check for attached components
             subcomponents = self.private_components[device]
             for subcomponent in subcomponents:
-                param_value = subcomponents[subcomponent]['count']
+                param_value = subcomponents[subcomponent]['component_instance']
                 define_str = ("#define {0}_{1} {2}"
                                 .format(instance_alias.upper(),
                                         subcomponent.upper(), param_value))
@@ -342,7 +360,8 @@ class CypressBuilder():
         desired_pins = {}
         for component, subcomponents in self.private_components.items():
             for subcomponent, info in subcomponents.items():
-                component_name = "{0}_{1}".format(subcomponent, info['count'])
+                component_name = "{0}_{1}".format(subcomponent,
+                                                  info['component_instance'])
                 port = info['port']
                 desired_pins[component_name] = port
         # Read design-wide resources
