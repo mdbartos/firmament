@@ -66,6 +66,9 @@ int generic_uart_parse_reading(DeviceDict device, char *str){
     float reading = 0;
     char reading_str[MAX_EXTRACT_BUFFER_SIZE] = {'\0'};
     char *search_start = str;
+    if (device.skipchars){
+        search_start += device.skipchars;
+    }
     int i = 0;
     for (i = 0; i < device.nvars; i++){
         search_start = strextract(search_start, reading_str, (*device.str_starts)[i], (*device.str_ends)[i]);

@@ -9,6 +9,7 @@ typedef struct {
     uint8 mux_term;
     uint8 power_term;
     uint8 nvars;
+    int skipchars;
     uint8 analog_convert_volts;
     float analog_gain_numerator;
     float analog_gain_denominator;
