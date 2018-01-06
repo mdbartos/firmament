@@ -11,17 +11,14 @@ paths_path = '../config/file_paths.yml'
 # Get paths
 paths = {}
 try:
-    filepath = __file__
-    parent_path = os.path.abspath(os.path.join(
-        os.path.abspath(os.path.join(
-            os.path.realpath(filepath),os.pardir)),
-        os.pardir))
+    filepath = os.path.join(*(os.path.split(os.path.abspath(__file__))[:-1]))
 except:
     filepath = os.path.realpath(os.curdir)
-paths_path = os.path.join(filepath, paths_path)
+paths_path = os.path.abspath(os.path.join(filepath, paths_path))
+paths_dir = os.path.join(*(os.path.split(paths_path)[:-1]))
 with open(paths_path, 'r') as stream:
     raw_paths = yaml.load(stream)
-root_path = os.path.abspath(raw_paths['root']['root'])
+root_path = os.path.abspath(os.path.join(paths_dir, raw_paths['root']['root']))
 for path_label, path in raw_paths['children'].items():
     paths[path_label] = os.path.join(root_path, os.path.normpath(path)) 
 
@@ -87,11 +84,15 @@ class CypressBuilder():
             instance_name = device_id + ':{0}'.format(instance_number)
             device_ids.append(device_id)
             protocol = device['communication_protocol']
-            sensor_path = self.locations[device_id]
             self.docs.update({device_id : {}})
             # Load full sensor config file
-            with open(sensor_path, 'r') as stream:
-                self.docs[device_id].update(yaml.load(stream))
+            filename = self.locations[device_id]
+            if filename in os.listdir(self.paths['peripherals']):
+                sensor_path = os.path.join(self.paths['peripherals'], filename)
+                with open(sensor_path, 'r') as stream:
+                    self.docs[device_id].update(yaml.load(stream))
+            else:
+                raise FileNotFoundError('{0} not found in peripherals directory'.format(device_id))
             # Get firmware info for specified protocol
             protocol_info = self.docs[device_id]['firmware'][protocol]
             self.instances.update({instance_name : protocol_info})

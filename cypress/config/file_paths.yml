@@ -2,6 +2,7 @@ root:
     root : '../../'
 children:
     config : 'device_config.yml'
+    peripherals : 'peripherals/yaml'
     locations : 'cypress/config/device_locations.yml'
     aliases : 'cypress/config/psoc_aliases.yml'
     master : 'cypress/config/master_component_list.yml'
