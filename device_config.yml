@@ -1,3 +1,4 @@
+platform: 'cypress'
 external:
     - identifier : "urn:maxbotix:mb7383"
       communication_protocol : "ttl"

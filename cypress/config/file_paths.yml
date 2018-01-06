@@ -1,0 +1,17 @@
+root:
+    root : '../../'
+children:
+    config : 'device_config.yml'
+    locations : 'cypress/config/device_locations.yml'
+    aliases : 'cypress/config/psoc_aliases.yml'
+    master : 'cypress/config/master_component_list.yml'
+    protocols : 'cypress/config/protocols.yml'
+    project : 'cypress/master.cydsn'
+    workspace : 'cypress/master.cywrk'
+    cyprjmgr : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe'
+    dwr : 'cypress/master.cydsn/master.cydwr'
+    cysem : 'cypress/master.cydsn/TopDesign/TopDesign.cysch.cysem'
+    params : 'cypress/master.cydsn/params'
+    globals : 'cypress/master.cydsn/peripheral_globals.h'
+    instances : 'cypress/master.cydsn/peripheral_instances.h'
+    calls : 'cypress/master.cydsn/peripheral_calls.c' 

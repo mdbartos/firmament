@@ -5,6 +5,11 @@ import itertools
 import yaml
 from bs4 import BeautifulSoup
 
+project_name = 'master'
+paths_path = '../config/file_paths.yml'
+
+# Get paths
+paths = {}
 try:
     filepath = __file__
     parent_path = os.path.abspath(os.path.join(
@@ -13,26 +18,12 @@ try:
         os.pardir))
 except:
     filepath = os.path.realpath(os.curdir)
-
-# TODO: Fix bad relative paths
-paths = {
-        'config' : '../config/device_config.yml',
-        'locations' : '../config/device_locations.yml',
-        'aliases' : '../config/psoc_aliases.yml',
-        'master' : '../config/master_component_list.yml',
-        'protocols' : '../config/protocols.yml',
-        'project' : '../master.cydsn',
-        'workspace' : '../master.cywrk',
-        'cyprjmgr' : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe',
-        'dwr' : '../master.cydsn/master.cydwr',
-        'cysem' : '../master.cydsn/TopDesign/TopDesign.cysch.cysem',
-        'params' : '../master.cydsn/params',
-        'globals' : '../master.cydsn/peripheral_globals.h',
-        'instances' : '../master.cydsn/peripheral_instances.h',
-        'calls' : '../master.cydsn/peripheral_calls.c',
-        }
-
-project_name = 'master'
+paths_path = os.path.join(filepath, paths_path)
+with open(paths_path, 'r') as stream:
+    raw_paths = yaml.load(stream)
+root_path = os.path.abspath(raw_paths['root']['root'])
+for path_label, path in raw_paths['children'].items():
+    paths[path_label] = os.path.join(root_path, os.path.normpath(path)) 
 
 class CypressBuilder():
     def __init__(self):
