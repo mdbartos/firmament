@@ -37,7 +37,7 @@ firmware:
             on_time : 800
             buffer_len : 5
             nvars : 1
-            skipchars : 0
+            skipchars : 86
             str_start :
                 - "\rR"
             str_end :
