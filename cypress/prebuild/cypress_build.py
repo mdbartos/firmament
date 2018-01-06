@@ -38,7 +38,6 @@ class CypressBuilder():
     def __init__(self):
         self.paths = paths
         self.project_name = project_name
-
         # Initialize dicts
         self.config = {}
         self.locations = {}
@@ -48,26 +47,20 @@ class CypressBuilder():
         self.aliases = {}
         self.master = {}
         self.guid = {}
-
         # Read config info
         self._read_config()
-
         # Construct master component list
         self.master_component_list = []
         for subsystem in self.master:
             self.master_component_list.extend(self.master[subsystem]['base'])
             if 'peripheral' in self.master[subsystem]:
                 self.master_component_list.extend(self.master[subsystem]['peripheral'])
-
         self._generate_private_components()
         self._generate_global_components()
-
         # Get all enabled components
         self.enabled_components = self.enabled_global_components + self.enabled_private_components
-
         # Map GUIDs
         self._map_guids()
-
         # Generate params for param file
         self._generate_params()
 
@@ -75,19 +68,15 @@ class CypressBuilder():
         # Read board configuration
         with open(self.paths['config'], 'r') as stream:
             self.config.update(yaml.load(stream))
-
         # Get locations of sensor documents
         with open(self.paths['locations'], 'r') as stream:
             self.locations.update(yaml.load(stream))
-
         # Get PSoC aliases
         with open(self.paths['aliases'], 'r') as stream:
             self.aliases.update(yaml.load(stream))
-
         # Get master components
         with open(self.paths['master'], 'r') as stream:
             self.master.update(yaml.load(stream))
-
         # Get protocol info
         with open(self.paths['protocols'], 'r') as stream:
             self.protocols.update(yaml.load(stream))
@@ -139,9 +128,13 @@ class CypressBuilder():
                 component_info.update({component : {'component_instance' : count,
                                                     'port' : port}})
             private_component_list.extend(components)
+            # Add component instances to instances dict
             self.instances[instance_name].update({'components' : component_info})
+            for subcomponent in component_info:
+                self.instances[instance_name]['dynamic'].update({subcomponent : 
+                    component_info[subcomponent]['component_instance']})
+            # TODO: Not good to have two mutable copies of the same thing floating around
             self.private_components.update({instance_name : component_info})
-
         self.enabled_private_components = []
         for component_dict in self.private_components.values():
             components = ['{0}_{1}'.format(k, v['component_instance']) for k, v in
@@ -212,6 +205,7 @@ class CypressBuilder():
         body = []
         body.extend(head)
         body.append('\n')
+        # Define switches
         activated_global_components = set(self.global_components)
         for global_component in self.master:
             if global_component in activated_global_components:
@@ -236,22 +230,35 @@ class CypressBuilder():
                 body.append(define_str)
 
             # Define device params
+            # TODO: Change this to read from protocols
+            protocol = self.instances[device]['meta']['protocol']
+            base_protocol = self.aliases['protocols'][protocol]
+            protocol_info = self.protocols[base_protocol]
+            param_classes = protocol_info['parameters']
             dynamic_params = self.instances[device]['dynamic']
-            for param, value in dynamic_params.items():
+            for param, spec in param_classes.items():
+                # TODO: Icky
+                param_label = param
+                if param == 'reading':
+                    param_label = 'default'
+                value = dynamic_params.setdefault(param_label, 
+                        spec.setdefault('default', None))
+                if value is None:
+                    raise KeyError("Value for parameter '{0}' must be specified".format(param))
                 if hasattr(value, "__len__") and not isinstance(value, str):
                     for num, item in enumerate(value):
                         if isinstance(item, str):
                             item = '"' + item.encode('unicode_escape').decode('ascii') + '"'
                         define_str = ("#define {0}_{1}_{2} {3}"
                                     .format(instance_alias.upper(),
-                                            param.upper(), num,
+                                            param_label.upper(), num,
                                             item))
                         body.append(define_str)
                 else:
                     if isinstance(value, str):
                         value = '"' + value + '"'
                     define_str = ("#define {0}_{1} {2}"
-                                  .format(instance_alias.upper(), param.upper(), value))
+                                  .format(instance_alias.upper(), param_label.upper(), value))
                     body.append(define_str)
             body.append('\n')
         body.extend(tail)
@@ -276,9 +283,11 @@ class CypressBuilder():
             protocol = self.instances[device]['meta']['protocol']
             base_protocol = self.aliases['protocols'][protocol]
             protocol_info = self.protocols[base_protocol]
+            # Instantiate arrays
             for array in protocol_info['dynamic_memory']:
                 dtype = protocol_info['dynamic_memory'][array]['type']
                 nvars_str = "{0}_NVARS".format(instance_alias.upper())
+                # If defining the reading array, using default values
                 # TODO: Messy implementation
                 if array == 'reading':
                     array_elem = 'default'.upper()
@@ -293,9 +302,11 @@ class CypressBuilder():
                               .format(dtype, instance_alias,
                                       array, nvars_str, array_elems))
                 body.append(define_str)
+            # Construct device struct
             struct_head = "static DeviceDict {0} = \n{{".format(instance_alias)
             body.append(struct_head)
-            for param, struct_label in protocol_info['struct_elems'].items():
+            for param, struct_dict in protocol_info['parameters'].items():
+                struct_label = struct_dict['struct_member']
                 if param in protocol_info['dynamic_memory']:
                     ptr_flag = '&'
                     value = "{0}_{1}".format(instance_alias, param)

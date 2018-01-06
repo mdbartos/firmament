@@ -10,17 +10,32 @@ generic_uart:
             type: "char*"
         str_end:
             type: "char*"
-    struct_elems:
-        baud : "baud"
-        on_time : "on_time"
-        generic_uart_rx : "mux_term"
-        power : "power_term"
-        nvars : "nvars"
-        reading : "readings"
-        label : "labels"
-        invalid : "invalid"
-        str_start : "str_starts"
-        str_end : "str_ends"
+    parameters:
+        baud : 
+            struct_member : "baud"
+            default : ~
+        on_time :
+            struct_member : "on_time"
+            default : 800
+        generic_uart_rx :
+            struct_member : "mux_term"
+        power :
+            struct_member : "power_term"
+        nvars :
+            struct_member : "nvars"
+        skipchars :
+            struct_member : "skipchars"
+            default : 0
+        reading :
+            struct_member : "readings"
+        label :
+            struct_member : "labels"
+        invalid :
+            struct_member : "invalid"
+        str_start :
+            struct_member : "str_starts"
+        str_end :
+            struct_member : "str_ends"
 analog_delsig:
     dynamic_memory:
         label:
@@ -29,17 +44,29 @@ analog_delsig:
             type: "float"
         invalid:
             type: "float"
-    struct_elems:
-        on_time : "on_time"
-        analog_delsig_signal : "mux_term"
-        power : "power_term"
-        analog_convert_volts : "analog_convert_volts"
-        analog_gain_numerator : "analog_gain_numerator"
-        analog_gain_denominator : "analog_gain_denominator"
-        nvars : "nvars"
-        reading : "readings"
-        label : "labels"
-        invalid : "invalid"
+    parameters:
+        on_time :
+            struct_member : "on_time"
+            default : 800
+        analog_delsig_signal :
+            struct_member : "mux_term"
+        power :
+            struct_member : "power_term"
+        analog_convert_volts :
+            struct_member : "analog_convert_volts"
+            default : 0
+        analog_gain_numerator :
+            struct_member : "analog_gain_numerator"
+        analog_gain_denominator :
+            struct_member : "analog_gain_denominator"
+        nvars :
+            struct_member : "nvars"
+        reading :
+            struct_member : "readings"
+        label :
+            struct_member : "labels"
+        invalid :
+            struct_member : "invalid"
 analog_sar:
     dynamic_memory:
         label:
@@ -48,15 +75,26 @@ analog_sar:
             type: "float"
         invalid:
             type: "float"
-    struct_elems:
-        on_time : "on_time"
-        analog_sar_signal : "mux_term"
-        power : "power_term"
-        analog_convert_volts : "analog_convert_volts"
-        analog_gain_numerator : "analog_gain_numerator"
-        analog_gain_denominator : "analog_gain_denominator"
-        nvars : "nvars"
-        reading : "readings"
-        label : "labels"
-        invalid : "invalid"
-
+    parameters:
+        on_time :
+            struct_member : "on_time"
+            default : 800
+        analog_delsig_signal :
+            struct_member : "mux_term"
+        power :
+            struct_member : "power_term"
+        analog_convert_volts :
+            struct_member : "analog_convert_volts"
+            default : 0
+        analog_gain_numerator :
+            struct_member : "analog_gain_numerator"
+        analog_gain_denominator :
+            struct_member : "analog_gain_denominator"
+        nvars :
+            struct_member : "nvars"
+        reading :
+            struct_member : "readings"
+        label :
+            struct_member : "labels"
+        invalid :
+            struct_member : "invalid"
