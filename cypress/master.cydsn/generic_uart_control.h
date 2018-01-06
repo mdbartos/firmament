@@ -12,6 +12,7 @@
 #include <project.h>
 #include "device_dict.h"
 
+#define GENERIC_UART_BUFFER_SIZE 257
 #define MAX_EXTRACT_BUFFER_SIZE 16       
     
 /**

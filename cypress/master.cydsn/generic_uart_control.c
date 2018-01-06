@@ -66,7 +66,7 @@ int generic_uart_parse_reading(DeviceDict device, char *str){
     float reading = 0;
     char reading_str[MAX_EXTRACT_BUFFER_SIZE] = {'\0'};
     char *search_start = str;
-    if (device.skipchars){
+    if (device.skipchars < GENERIC_UART_BUFFER_SIZE){
         search_start += device.skipchars;
     }
     int i = 0;
