@@ -145,14 +145,20 @@ xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.n
 			<sml:characteristic name="firmwareProtocols">
 				<swe:DataRecord definition="http://sensorml.com/ont/swe/property/FirmwareProtocols">
                     <swe:label>TTL</swe:label>
-                    <swe:field name="TTL">
+                    <swe:field name="ttl">
                     <swe:DataRecord definition="http://sensorml.com/ont/swe/property/ttl">
                         <swe:label>Firmware Components</swe:label>
                         <swe:field name="firmwareComponents">
                             <swe:DataRecord>
                                 <swe:field name="GenericUartRx">
+                                    <swe:Boolean definition="http://sensorml.com/ont/swe/property/ParityApiControl">
+                                        <swe:value>True</swe:value>
+                                    </swe:Boolean>
                                 </swe:field>
                                 <swe:field name="Power">
+                                    <swe:Boolean definition="http://sensorml.com/ont/swe/property/ParityApiControl">
+                                        <swe:value>True</swe:value>
+                                    </swe:Boolean>
                                 </swe:field>
                             </swe:DataRecord>
                         </swe:field>
@@ -265,15 +271,14 @@ xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.n
                                 </swe:field>
                             </swe:DataRecord>
                         </swe:field>
+                    </swe:DataRecord>
                     </swe:field>
-                    <swe:label>AnalogSar</swe:label>
-                    <swe:field name="AnalogSar">
-                        <!--Not implemented-->
-                    </swe:field>
-                    <swe:label>AnalogDelsig</swe:label>
-                    <swe:field name="AnalogDelsig">
-                        <!--Not implemented-->
-                    </swe:field>
+                    <!--<swe:label>AnalogSar</swe:label>-->
+                    <!--<swe:field name="AnalogSar">-->
+                    <!--</swe:field>-->
+                    <!--<swe:label>AnalogDelsig</swe:label>-->
+                    <!--<swe:field name="AnalogDelsig">-->
+                    <!--</swe:field>-->
 				</swe:DataRecord>
 			</sml:characteristic>
 		</sml:CharacteristicList>
