@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:PhysicalComponent gml:id="MB7383" xml:lang="en" definition="http://sensorml.com/def/sensor/maxbotix7383"
+xmlns:sml="http://www.opengis.net/sensorml/2.0"
+xmlns:swe="http://www.opengis.net/swe/2.0"
+xmlns:gml="http://www.opengis.net/gml/3.2"
+xmlns:gmd="http://www.isotc211.org/2005/gmd"
+xmlns:gco="http://www.isotc211.org/2005/gco"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:ism="urn:us:gov:ic:ism"
+xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorml/2.0/sensorML.xsd">
+
+	<!-- ================================================= -->
+	<!--                  System Description               -->
+	<!-- ================================================= -->
+	<gml:description>High performance ultrasonic rangefinder</gml:description>
+	<gml:identifier codeSpace="UID">urn:maxbotix:mb7383</gml:identifier>
+	<gml:name>Maxbotix MB7383 ultrasonic rangefinder</gml:name>
+	<sml:keywords>
+		<sml:KeywordList>
+			<sml:keyword>Maxbotix</sml:keyword>
+			<sml:keyword>Ultrasonic</sml:keyword>
+			<sml:keyword>Depth</sml:keyword>
+		</sml:KeywordList>
+	</sml:keywords>
+
+	<!-- ======================================= -->
+	<!--               Identifiers               -->
+	<!-- ======================================= -->
+	<sml:identification>
+		<sml:IdentifierList>
+			<sml:identifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/LongName">
+					<sml:label>Long Name</sml:label>
+					<sml:value>MB7383 HRXL-MaxSonar-WRLST</sml:value>
+				</sml:Term>
+			</sml:identifier>
+			<sml:identifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/ShortName">
+					<sml:label>Short Name</sml:label>
+					<sml:value>MB7383 Ultrasonic Rangefinder</sml:value>
+				</sml:Term>
+			</sml:identifier>
+			<sml:identifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/ModelNumber">
+					<sml:label>Model Number</sml:label>
+					<sml:value>7383</sml:value>
+				</sml:Term>
+			</sml:identifier>
+			<sml:identifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/Manufacturer">
+					<sml:label>Manufacturer</sml:label>
+					<sml:value>Maxbotix</sml:value>
+				</sml:Term>
+			</sml:identifier>
+		</sml:IdentifierList>
+	</sml:identification>
+
+	<!-- ======================================= -->
+	<!--               Classifiers               -->
+	<!-- ======================================= -->
+	<sml:classification>
+		<sml:ClassifierList>
+			<sml:classifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/IntendedApplication">
+					<sml:label>Intended Application</sml:label>
+					<sml:value>Distance measurement</sml:value>
+				</sml:Term>
+			</sml:classifier>
+			<sml:classifier>
+				<sml:Term definition="http://sensorml.com/ont/swe/property/SensorType">
+					<sml:label>Sensor Type</sml:label>
+					<sml:codeSpace xlink:href="urn:x-ceos:def:GCMD:sensors"/>
+					<sml:value>ultrasonic rangefinder</sml:value>
+				</sml:Term>
+			</sml:classifier>
+		</sml:ClassifierList>
+	</sml:classification>
+
+	<!-- ======================================= -->
+	<!--            Characteristics              -->
+	<!-- =======================================  -->
+	<sml:characteristics name="generalProperties">
+		<sml:CharacteristicList>
+			<sml:characteristic name="physicalProperties">
+				<swe:DataRecord definition="http://sensorml.com/ont/swe/property/PhysicalProperties">
+					<swe:label>Physical Properties</swe:label>
+					<swe:field name="PhysicalProperties">
+						<swe:DataRecord>
+							<swe:field name="Weight">
+								<swe:Quantity definition="http://sensorml.com/ont/swe/property/Weight">
+									<swe:uom code="g"/>
+									<swe:value>50</swe:value>
+								</swe:Quantity>
+							</swe:field>
+							<swe:field name="Length">
+								<swe:Quantity definition="http://sensorml.com/ont/swe/property/Length">
+									<swe:uom code="mm"/>
+									<swe:value>65.1</swe:value>
+								</swe:Quantity>
+							</swe:field>
+							<swe:field name="Width">
+								<swe:Quantity definition="http://sensorml.com/ont/swe/property/Width">
+									<swe:uom code="mm"/>
+									<swe:value>43.8</swe:value>
+								</swe:Quantity>
+							</swe:field>
+							<swe:field name="Height">
+								<swe:Quantity definition="http://sensorml.com/ont/swe/property/Height">
+									<swe:uom code="mm"/>
+									<swe:value>43.8</swe:value>
+								</swe:Quantity>
+							</swe:field>
+							<swe:field name="CasingMaterial">
+								<swe:Category definition="http://sensorml.com/ont/swe/property/Material">
+									<swe:value>Plastic</swe:value>
+								</swe:Category>
+							</swe:field>
+						</swe:DataRecord>
+					</swe:field>
+				</swe:DataRecord>
+			</sml:characteristic>
+			<sml:characteristic name="electricalRequirements">
+				<swe:DataRecord definition="http://sensorml.com/ont/swe/property/PowerRequirement">
+					<swe:label>Electrical Requirements</swe:label>
+					<swe:field name="voltage">
+						<swe:QuantityRange definition="http://sensorml.com/ont/swe/property/Voltage">
+							<swe:uom code="V"/>
+							<swe:value>2.7 5.5</swe:value>
+						</swe:QuantityRange>
+					</swe:field>
+					<swe:field name="CurrentType">
+						<swe:Category definition="http://sensorml.com/ont/swe/property/ElectricalCurrentType">
+							<swe:value>DC</swe:value>
+						</swe:Category>
+					</swe:field>
+					<swe:field name="AmpRange">
+						<swe:QuantityRange definition="http://sensorml.com/ont/swe/property/ElectricalCurrent">
+							<swe:uom code="mA"/>
+							<swe:value>2.9 3.1</swe:value>
+						</swe:QuantityRange>
+					</swe:field>
+				</swe:DataRecord>
+            </sml:characteristic>
+			<sml:characteristic name="firmwareProtocols">
+				<swe:DataRecord definition="http://sensorml.com/ont/swe/property/FirmwareProtocols">
+                    <swe:label>TTL</swe:label>
+                    <swe:field name="TTL">
+                    <swe:DataRecord definition="http://sensorml.com/ont/swe/property/ttl">
+                        <swe:label>Firmware Components</swe:label>
+                        <swe:field name="firmwareComponents">
+                            <swe:DataRecord>
+                                <swe:field name="GenericUartRx">
+                                </swe:field>
+                                <swe:field name="Power">
+                                </swe:field>
+                            </swe:DataRecord>
+                        </swe:field>
+                        <swe:label>Component Properties</swe:label>
+                        <swe:field name="ComponentProperties">
+                            <swe:DataRecord>
+                                <swe:field name="DataBits">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/DataBits">
+                                        <swe:value>8</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="Parity">
+                                    <swe:Text definition="http://sensorml.com/ont/swe/property/Parity">
+                                        <swe:value>None</swe:value>
+                                    </swe:Text>
+                                </swe:field>
+                                <swe:field name="ParityApiControl">
+                                    <swe:Boolean definition="http://sensorml.com/ont/swe/property/ParityApiControl">
+                                        <swe:value>True</swe:value>
+                                    </swe:Boolean>
+                                </swe:field>
+                                <swe:field name="StopBits">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/StopBits">
+                                        <swe:value>1</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="FlowControl">
+                                    <swe:Text definition="http://sensorml.com/ont/swe/property/FlowControl">
+                                        <swe:value>None</swe:value>
+                                    </swe:Text>
+                                </swe:field>
+                                <swe:field name="LogicLevel">
+                                    <swe:Text definition="http://sensorml.com/ont/swe/property/LogicLevel">
+                                        <swe:value>High</swe:value>
+                                    </swe:Text>
+                                </swe:field>
+                            </swe:DataRecord>
+                        </swe:field>
+                        <swe:label>Driver Properties</swe:label>
+                        <swe:field name="DriverProperties">
+                            <swe:DataRecord>
+                                <swe:field name="Baud">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/BaudRate">
+                                        <swe:value>9600</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="OnTime">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/OnTime">
+                                        <swe:value>800</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="BufferLen">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/BufferLen">
+                                        <swe:value>5</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="Nvars">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/Nvars">
+                                        <swe:value>1</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="SkipChars">
+                                    <swe:Count definition="http://sensorml.com/ont/swe/property/SkipChars">
+                                        <swe:value>86</swe:value>
+                                    </swe:Count>
+                                </swe:field>
+                                <swe:field name="ParsingLogic">
+                                    <swe:DataStream definition="http://sensorml.com/ont/swe/property/ParsingLogic">
+                                        <swe:label>Parsing Logic</swe:label>
+                                        <swe:description>
+                                            Logic for parsing output stream
+                                        </swe:description>
+                                        <swe:elementCount>
+                                            <swe:Count>
+                                                <swe:value>4</swe:value>
+                                            </swe:Count>
+                                        </swe:elementCount>
+                                        <swe:elementType name="parsingElements">
+                                            <swe:DataRecord>
+                                                <swe:label>Parsing Elements</swe:label>
+                                                <swe:field name="strStart">
+                                                    <swe:Text definition="http://sensorml.com/ont/swe/property/strStart">
+                                                        <swe:label>String Start</swe:label>
+                                                    </swe:Text>
+                                                </swe:field>
+                                                <swe:field name="strEnd">
+                                                    <swe:Text definition="http://sensorml.com/ont/swe/property/strEnd">
+                                                        <swe:label>String End</swe:label>
+                                                    </swe:Text>
+                                                </swe:field>
+                                                <swe:field name="invalid">
+                                                    <swe:Count definition="http://sensorml.com/ont/swe/property/invalid">
+                                                        <swe:label>Invalid Value</swe:label>
+                                                    </swe:Count>
+                                                </swe:field>
+                                                <swe:field name="default">
+                                                    <swe:Count definition="http://sensorml.com/ont/swe/property/default">
+                                                        <swe:label>Default Value</swe:label>
+                                                    </swe:Count>
+                                                </swe:field>
+                                            </swe:DataRecord>
+                                        </swe:elementType>
+                                        <swe:encoding>
+                                            <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+                                        </swe:encoding>
+                                        <swe:values>
+                                            \rR,\r,9999,-9999
+                                        </swe:values>
+                                    </swe:DataStream>
+                                </swe:field>
+                            </swe:DataRecord>
+                        </swe:field>
+                    </swe:field>
+                    <swe:label>AnalogSar</swe:label>
+                    <swe:field name="AnalogSar">
+                        <!--Not implemented-->
+                    </swe:field>
+                    <swe:label>AnalogDelsig</swe:label>
+                    <swe:field name="AnalogDelsig">
+                        <!--Not implemented-->
+                    </swe:field>
+				</swe:DataRecord>
+			</sml:characteristic>
+		</sml:CharacteristicList>
+	</sml:characteristics>
+
+	<!-- ============================ -->
+	<!--            Capabilities              -->
+	<!-- ============================ -->
+	<sml:capabilities name="specifications">
+		<sml:CapabilityList>
+			<sml:capability name="measurementProperties">
+				<swe:DataRecord definition="http://sensorml.com/ont/swe/property/MeasurementProperties">
+					<swe:label>Measurement Properties</swe:label>
+					<swe:field name="Distance">
+						<swe:QuantityRange definition="http://sensorml.com/ont/swe/property/RadiationLevel">
+							<swe:uom code="mm"/>
+							<swe:value>500 9999</swe:value>
+						</swe:QuantityRange>
+					</swe:field>
+					<swe:field name="Sensitivity">
+						<swe:Quantity definition="http://sensorml.com/ont/swe/property/DistanceSensitivity">
+							<swe:uom code="mm"/>
+							<swe:value>1</swe:value>
+						</swe:Quantity>
+					</swe:field>
+				</swe:DataRecord>
+			</sml:capability>
+		</sml:CapabilityList>
+	</sml:capabilities>
+
+	<!-- ============================ -->
+	<!--            Documentation              -->
+	<!-- ============================ -->
+	<sml:documentation>
+		<sml:DocumentList>
+			<sml:document xlink:arcrole="http://sensorml.com/ont/swe/property/OperationsManual">
+				<gmd:CI_OnlineResource>
+					<gmd:linkage>
+						<gmd:URL>https://www.maxbotix.com/documents/HRXL-MaxSonar-WR_Datasheet.pdf</gmd:URL>
+					</gmd:linkage>
+					<gmd:name>
+						<gco:CharacterString>PD11500s-HRXL-MaxSonar-WR_Datasheet</gco:CharacterString>
+					</gmd:name>
+					<gmd:description>
+						<gco:CharacterString>Data sheet for Maxbotix MB7383. Provides outout interface information, settings, and calibration instructions.</gco:CharacterString>
+					</gmd:description>
+				</gmd:CI_OnlineResource>
+			</sml:document>
+		</sml:DocumentList>
+	</sml:documentation>
+
+	<!-- =================== -->
+	<!--   Inputs               -->
+	<!-- =================== -->
+	<sml:inputs>
+		<sml:InputList>
+			<sml:input name="distance">
+				<sml:ObservableProperty definition="http://sensorml.com/ont/swe/property/Distance">
+					<swe:label>Distance</swe:label>
+				</sml:ObservableProperty>
+			</sml:input>
+		</sml:InputList>
+	</sml:inputs>
+
+	<!-- ===================== -->
+	<!--     outputs                  -->
+	<!-- ===================== -->
+	<sml:outputs>
+		<sml:OutputList>
+			<sml:output name="distance">
+				<swe:DataRecord>
+					<swe:field name="distance">
+						<swe:Quantity definition="http://sensorml.com/ont/SWE/sensor-property/distance.html">
+							<swe:label>Distance to nearest object</swe:label>
+							<swe:uom code="mm"/>
+						</swe:Quantity>
+					</swe:field>
+				</swe:DataRecord>
+			</sml:output>
+		</sml:OutputList>
+	</sml:outputs>
+
+	<sml:method xlink:href="http://oem.com/gamma2070_method.xml"/>
+</sml:PhysicalComponent>
