@@ -23,10 +23,10 @@ class SensorMLParser():
             self.datarecord(souptag, d)
             souptag = souptag.find_next_sibling()
 
-    def datarecord(self, souptag, d):
+    def datarecord(self, souptag, d, **kwargs):
         souptag = souptag.find('field')
         while souptag:
-            self.field(souptag, d)
+            self.field(souptag, d, **kwargs)
             souptag = souptag.find_next_sibling('field')
 
     def field(self, souptag, d, declaration=False):
@@ -34,51 +34,74 @@ class SensorMLParser():
         print(fieldname)
         typetag = souptag.find()
         typename = typetag.name.lower()
-        # Hacky but works for right now
-        if typename == 'datarecord':
-            d.update({fieldname : {}})
+        d.update({fieldname : {}})
+        d[fieldname].update({'type' : typename})
+        if not declaration:
             getattr(self, typename)(souptag, d[fieldname])
-        else:
-            getattr(self, typename)(souptag, d)
 
     def count(self, souptag, d):
-        fieldname = souptag.attrs['name']
         souptag = souptag.find('value')
         value = int(souptag.get_text())
-        d.update({fieldname : value})
+        d.update({'value' : value})
 
     def quantity(self, souptag, d):
-        fieldname = souptag.attrs['name']
         souptag = souptag.find('value')
         value = float(souptag.get_text())
-        d.update({fieldname : value})
+        d.update({'value' : value})
 
     def text(self, souptag, d):
-        fieldname = souptag.attrs['name']
         souptag = souptag.find('value')
         value = souptag.get_text()
-        d.update({fieldname : value})
+        d.update({'value' : value})
 
-    def boolean(self, souptag, d):
-        fieldname = souptag.attrs['name']
-        souptag = souptag.find('value')
-        value = souptag.get_text().lower()
+    def _str_to_bool(self, value):
+        value = value.lower()
         if value in ('true', '1'):
-            value = True
+            return True
         elif value in ('false', '0'):
-            value = False
+            return False
         else:
             raise ValueError("Boolean value must be 'true' or 'false'")
-        d.update({fieldname : value})
+
+    def boolean(self, souptag, d):
+        souptag = souptag.find('value')
+        value = self._str_to_bool(souptag.get_text().lower())
+        d.update({'value' : value})
 
     def category(self, souptag, d):
         self.text(souptag, d)
 
     def datastream(self, souptag, d):
-        pass
+        elemtype = souptag.find('elementType')
+        declarations = elemtype.find('DataRecord')
+        self.datarecord(declarations, d, declaration=True)
+        field_labels = [field.attrs['name'] for field in declarations.find_all('field')]
+        for label in field_labels:
+            d[label].update({'value' : []})
+        encoding = souptag.find('encoding')
+        text_encoding = encoding.find('TextEncoding')
+        block_separator = text_encoding.attrs['blockSeparator']
+        token_separator = text_encoding.attrs['tokenSeparator']
+        decimalseparator = (text_encoding.attrs
+                               .setdefault('decimalSeparator', '.'))
+        collapsewhitespaces = (self._str_to_bool(text_encoding.attrs
+                               .setdefault('collapseWhiteSpaces', 'true')))
+        raw_values = souptag.find('values').get_text()  
+        if collapsewhitespaces:
+            raw_values = raw_values.strip()
+        blocks = raw_values.split(block_separator)
+        for block in blocks:
+            tokens = block.split(token_separator)
+            for label, token in zip(field_labels, tokens):
+                # TODO: Still need to handle typing 
+                typename = d[label]['type']
+                d[label]['value'].append(token)
 
     def quantityrange(self, souptag, d):
-        pass
+        souptag = souptag.find('value')
+        values = souptag.get_text().lower()
+        value_list = [float(value) for value in values.split()]
+        d.update({'value' : value_list})
 
 sensor = 'maxbotix_mb7383.xml'
 desired_protocol = 'ttl'
@@ -89,3 +112,10 @@ s = Soup(x, 'xml')
 
 parser = SensorMLParser()
 parser.characteristics(s, parser.tree)
+
+def walk(node):
+    for key, item in node.items():
+        if item is a collection:
+            walk(item)
+        else:
+            It is a leaf, do your thing
