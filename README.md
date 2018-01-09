@@ -80,12 +80,12 @@ An example configuration document can be found in `firmament/device_config.yml`
 git clone https://github.com/mdbartos/firmament
 ```
 
-## Running the code generator
+## Running the code generator (Cypress devices)
 
 Navigate to the root directory of the repo and run:
 
 ```bash
-python cypress/prebuild/cypress_prebuild.py
+python firmament/build/cypress.py firmament/device_config.yml
 ```
 
 This will generate and compile the firmware into a binary. This binary can be flashed to a Cypress PSoC device using PSoC Creator or PSoC Programmer.
