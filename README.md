@@ -55,7 +55,7 @@ firmware:
 
 Example yaml driver documents can be found in `firmament/peripherals/yaml`
 
-Example sensorml driver documents can be found in `firmament/peripherals/sensorml
+Example sensorml driver documents can be found in `firmament/peripherals/sensorml`
 
 ### Configuration document
 
