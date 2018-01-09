@@ -1,0 +1,47 @@
+platform: 'cypress'
+external:
+    - identifier : "urn:maxbotix:mb7383"
+      communication_protocol : "ttl"
+      pins:
+          power : '12,6'
+          generic_uart_rx : '12,7'
+    - identifier : "urn:maxbotix:mb7383"
+      communication_protocol : "ttl"
+      pins:
+          power : '12,4'
+          generic_uart_rx : '12,3'
+      overrides :
+          dynamic :
+              label :
+                  - "maxbotix_2_depth"
+    - identifier : "urn:decagon:gs3"
+      communication_protocol : "ttl"
+      pins:
+          power : '3,0'
+          generic_uart_rx : '3,1'
+    - identifier : 'urn:battery_internal'
+      communication_protocol : 'analog_delsig'
+      pins:
+          power : '12,1'
+          analog_delsig_signal : '0,0'
+internal:
+    - identifier : "urn:cypress:sleeptimer"
+paths:
+    root:
+        root : '.'
+    children:
+        config : 'device_config.yml'
+        peripherals : 'peripherals/yaml'
+        locations : 'firmware/cypress/config/device_locations.yml'
+        aliases : 'firmware/cypress/config/psoc_aliases.yml'
+        master : 'firmware/cypress/config/master_component_list.yml'
+        protocols : 'firmware/cypress/config/protocols.yml'
+        project : 'firmware/cypress/master.cydsn'
+        workspace : 'firmware/cypress/master.cywrk'
+        cyprjmgr : 'c://Program Files (x86)/Cypress/PSoC Creator/4.1/PSoC Creator/bin/cyprjmgr.exe'
+        dwr : 'firmware/cypress/master.cydsn/master.cydwr'
+        cysem : 'firmware/cypress/master.cydsn/TopDesign/TopDesign.cysch.cysem'
+        params : 'firmware/cypress/master.cydsn/params'
+        globals : 'firmware/cypress/master.cydsn/peripheral_globals.h'
+        instances : 'firmware/cypress/master.cydsn/peripheral_instances.h'
+        calls : 'firmware/cypress/master.cydsn/peripheral_calls.c'

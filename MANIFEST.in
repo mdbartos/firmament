@@ -1,0 +1,3 @@
+include firmament/cypress/config/master_component_list.yml
+include firmament/cypress/config/protocols.yml
+include firmament/cypress/config/psoc_aliases.yml

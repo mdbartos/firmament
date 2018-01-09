@@ -1,26 +1,10 @@
+import sys
 import os
 import collections
 import subprocess
 import itertools
 import yaml
 from bs4 import BeautifulSoup
-
-project_name = 'master'
-paths_path = '../config/file_paths.yml'
-
-# Get paths
-paths = {}
-try:
-    filepath = os.path.join(*(os.path.split(os.path.abspath(__file__))[:-1]))
-except:
-    filepath = os.path.realpath(os.curdir)
-paths_path = os.path.abspath(os.path.join(filepath, paths_path))
-paths_dir = os.path.join(*(os.path.split(paths_path)[:-1]))
-with open(paths_path, 'r') as stream:
-    raw_paths = yaml.load(stream)
-root_path = os.path.abspath(os.path.join(paths_dir, raw_paths['root']['root']))
-for path_label, path in raw_paths['children'].items():
-    paths[path_label] = os.path.join(root_path, os.path.normpath(path)) 
 
 class CypressBuilder():
     def __init__(self):
@@ -397,7 +381,6 @@ class CypressBuilder():
         s = BeautifulSoup(x, 'xml')
         # Get pin ids
         # TODO: This does not capture internal pins
-        pins = {}
         pin_group = s.find('Group', key='Pin')
         pin_group.clear()
         for pin in desired_pins:
@@ -424,6 +407,19 @@ class CypressBuilder():
             dwr_file.write(s.prettify())
 
 if __name__ == "__main__":
+    # Configure paths
+    paths = {}
+    config_path = sys.argv[1]
+    config_dir = os.path.join(*(os.path.split(os.path.abspath(config_path))[:-1]))
+    with open(config_path, 'r') as stream:
+        config = yaml.load(stream)
+    raw_paths = config['paths']
+    root_path = os.path.abspath(os.path.join(config_dir, raw_paths['root']['root']))
+    for path_label, path in raw_paths['children'].items():
+        paths[path_label] = os.path.join(root_path, os.path.normpath(path))
+    # Other config
+    project_name = config.setdefault('project_name', 'master')
+    # Run Builder
     builder = CypressBuilder()
     builder.write_params_file()
     builder.write_globals_file()
