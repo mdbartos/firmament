@@ -30,25 +30,25 @@ xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.n
 	<sml:identification>
 		<sml:IdentifierList>
 			<sml:identifier>
-				<sml:Term definition="http://sensorml.com/ont/swe/property/LongName">
+				<sml:Term name="LongName" definition="http://sensorml.com/ont/swe/property/LongName">
 					<sml:label>Long Name</sml:label>
 					<sml:value>MB7383 HRXL-MaxSonar-WRLST</sml:value>
 				</sml:Term>
 			</sml:identifier>
 			<sml:identifier>
-				<sml:Term definition="http://sensorml.com/ont/swe/property/ShortName">
+				<sml:Term name="ShortName" definition="http://sensorml.com/ont/swe/property/ShortName">
 					<sml:label>Short Name</sml:label>
 					<sml:value>MB7383 Ultrasonic Rangefinder</sml:value>
 				</sml:Term>
 			</sml:identifier>
 			<sml:identifier>
-				<sml:Term definition="http://sensorml.com/ont/swe/property/ModelNumber">
+				<sml:Term name="ModelNumber" definition="http://sensorml.com/ont/swe/property/ModelNumber">
 					<sml:label>Model Number</sml:label>
 					<sml:value>7383</sml:value>
 				</sml:Term>
 			</sml:identifier>
 			<sml:identifier>
-				<sml:Term definition="http://sensorml.com/ont/swe/property/Manufacturer">
+				<sml:Term name="Manufacturer" definition="http://sensorml.com/ont/swe/property/Manufacturer">
 					<sml:label>Manufacturer</sml:label>
 					<sml:value>Maxbotix</sml:value>
 				</sml:Term>
