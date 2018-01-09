@@ -4,11 +4,15 @@
 
 ## Principle
 
-**firmament** generates firmware files using two types of documents: *driver* documents and *configuration* documents.
+**firmament** generates sensor and actuator drivers for use in embedded systems.
+The code generator uses two types of documents: *driver* documents and *configuration* documents.
+These documents can be formatted as sensorML, or as a simplified yaml document.
 
 ### Driver documents
 
-Driver documents are used to generate drivers for individual sensors or actuators. These documents provide information about the sensor's communication protocols, and describe any information needed to intepret the data stream.
+Driver documents are used to generate drivers for individual sensors or actuators.
+These documents provide information about the sensor's communication protocols, and describe any information needed to intepret the data stream.
+An example (in simplified yaml format) is shown below:
 
 ```yaml
 # Component description
@@ -49,7 +53,9 @@ firmware:
             - "power"
 ```
 
-Example driver documents can be found in `firmament/peripherals/yaml`
+Example yaml driver documents can be found in `firmament/peripherals/yaml`
+
+Example sensorml driver documents can be found in `firmament/peripherals/sensorml
 
 ### Configuration document
 
