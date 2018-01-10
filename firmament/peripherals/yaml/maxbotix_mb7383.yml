@@ -39,9 +39,9 @@ firmware:
             nvars : 1
             skipchars : 86
             str_start :
-                - "\rR"
+                - '\rR'
             str_end :
-                - "\r"
+                - '\r'
             label :
                 - "maxbotix_depth"
             invalid :

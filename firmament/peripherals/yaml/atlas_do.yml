@@ -34,9 +34,9 @@ firmware:
             buffer_len : 10
             nvars : 1
             str_start :
-                - "\r"
+                - '\r'
             str_end :
-                - "\r"
+                - '\r'
             label :
                 - "atlas_dissolved_oxygen"
             invalid :
@@ -61,7 +61,7 @@ firmware:
             read_command : "R"
             affirm_response_code : 1
             str_start :
-                - \1
+                - '\1'
             str_end :
                 - ""
             label :

@@ -35,8 +35,8 @@ firmware:
             str_end :
                 - " "
                 - " "
-                - "\r"
-                - "\r\n"
+                - '\r'
+                - '\r\n'
             default :
                 - -9999
                 - -9999

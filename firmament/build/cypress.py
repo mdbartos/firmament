@@ -224,7 +224,7 @@ class CypressBuilder():
                 if hasattr(value, "__len__") and not isinstance(value, str):
                     for num, item in enumerate(value):
                         if isinstance(item, str):
-                            item = '"' + item.encode('unicode_escape').decode('ascii') + '"'
+                            item = '"' + item + '"'
                         define_str = ("#define {0}_{1}_{2} {3}"
                                     .format(instance_alias.upper(),
                                             param_label.upper(), num,
