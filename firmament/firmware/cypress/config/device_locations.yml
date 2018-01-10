@@ -2,3 +2,4 @@
 "urn:maxbotix:mb7383" : "maxbotix_mb7383.yml"
 "urn:decagon:gs3" : "decagon_gs3.yml"
 "urn:battery_internal" : "battery_internal.yml"
+"urn:atlas:dissolved_oxygen" : "atlas_do.yml"

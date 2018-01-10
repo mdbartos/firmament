@@ -1,5 +1,11 @@
 platform: 'cypress'
 external:
+    - identifier : "urn:atlas:dissolved_oxygen"
+      communication_protocol : "i2c"
+      pins:
+          power : '3,3'
+          i2c_sda : '2,2'
+          i2c_scl : '2,3'
     - identifier : "urn:maxbotix:mb7383"
       communication_protocol : "ttl"
       pins:

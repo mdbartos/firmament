@@ -61,7 +61,7 @@ firmware:
             read_command : "R"
             affirm_response_code : 1
             str_start :
-                - "\1"
+                - \1
             str_end :
                 - ""
             label :
@@ -70,4 +70,8 @@ firmware:
                 - 9999
             default :
                 - -9999
+        components:
+            - "power"
+            - "i2c_sda"
+            - "i2c_scl"
 

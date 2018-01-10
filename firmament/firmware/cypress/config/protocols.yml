@@ -98,3 +98,49 @@ analog_sar:
             struct_member : "labels"
         invalid :
             struct_member : "invalid"
+i2c:
+    dynamic_memory:
+        label:
+            type: "char*" 
+        reading:
+            type: "float"
+        invalid:
+            type: "float"
+        str_start:
+            type: "char*"
+        str_end:
+            type: "char*"
+    parameters:
+        on_time :
+            struct_member : "on_time"
+            default : 800
+        i2c_sda :
+            struct_member : "mux_term"
+        power :
+            struct_member : "power_term"
+        nvars :
+            struct_member : "nvars"
+        skipchars :
+            struct_member : "skipchars"
+            default : 0
+        slave_address:
+            struct_member : "i2c_slave_address"
+            default : 0
+        command_buffer_size:
+            struct_member : "i2c_command_buffer_size"
+        read_command:
+            struct_member : "i2c_read_command"
+        affirm_response_code :
+            struct_member : "i2c_affirm_response_code"
+        delay:
+            struct_member : "i2c_delay"
+        reading :
+            struct_member : "readings"
+        label :
+            struct_member : "labels"
+        invalid :
+            struct_member : "invalid"
+        str_start :
+            struct_member : "str_starts"
+        str_end :
+            struct_member : "str_ends"

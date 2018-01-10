@@ -23,8 +23,8 @@ rs485_uart:
 i2c:
     base:
         - "i2c"
-        - "i2c_sda"
-        - "i2c_scl"
+        - "i2c_sda_0"
+        - "i2c_scl_0"
         - "i2c_clock"
 analog_delsig:
     base:
