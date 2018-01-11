@@ -120,4 +120,6 @@ Note that only Python 3 is supported.
 
 **firmament** currently only supports Cypress PSoC devices.
 
+A Cypress prototyping kit can be purchased <a href="http://www.cypress.com/documentation/development-kitsboards/cy8ckit-059-psoc-5lp-prototyping-kit-onboard-programmer-and">here</a> for ~$10
+
 Integration with Arduino and Raspberry Pi is planned.
